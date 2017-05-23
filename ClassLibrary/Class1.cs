@@ -35,7 +35,8 @@ namespace ClassLibrary
                 command.CommandText = "insert into teste (nome, fone) values (@nome, @fone)";
                 command.Parameters.AddWithValue("@nome", nome);
                 command.Parameters.AddWithValue("@fone", fone);
-                command.CommandType = CommandType.Text;             
+                command.CommandType = CommandType.Text;       
+                      
                 command.ExecuteNonQuery();
             }
         }

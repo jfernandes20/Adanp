@@ -24,6 +24,9 @@ namespace WindowsFormsApplication
         private void button1_Click(object sender, EventArgs e)
         {
             Class1.inserirRegistro(this.textBox1.Text, this.maskedTextBox1.Text);
+            MessageBox.Show("Registro inserido","Confirmação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            this.textBox1.Text = string.Empty;
+            this.maskedTextBox1.Text = string.Empty;
             this.carregaDados();
         }
 
@@ -31,6 +34,7 @@ namespace WindowsFormsApplication
         {
             
             this.carregaDados();
+            this.textBox1.Focus();
         }
     }
 }

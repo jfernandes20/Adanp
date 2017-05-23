@@ -46,14 +46,14 @@
             this.dgTeste.Name = "dgTeste";
             this.dgTeste.ReadOnly = true;
             this.dgTeste.Size = new System.Drawing.Size(709, 341);
-            this.dgTeste.TabIndex = 0;
+            this.dgTeste.TabIndex = 5;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 77);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 0;
             // 
             // button1
             // 
@@ -89,7 +89,7 @@
             this.maskedTextBox1.Mask = "(99) 00000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(118, 20);
-            this.maskedTextBox1.TabIndex = 4;
+            this.maskedTextBox1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -103,6 +103,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgTeste);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgTeste)).EndInit();

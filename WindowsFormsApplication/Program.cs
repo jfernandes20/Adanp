@@ -16,14 +16,11 @@ namespace WindowsFormsApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            string releaseConnectionString = @"Data Source=adanp.db";
-            string debugConnectionString = @"Data Source=..\..\..\DB\adanp.db";
             ClassLibrary.AppSetting settings = new ClassLibrary.AppSetting();
 #if DEBUG
-            settings.SaveConnectionString(debugConnectionString, "AdanpConnectionString");
+            settings.SaveConnectionString("DebugAdanpConnectionString");
 #else
-            settings.SaveConnectionString(releaseConnectionString, "AdanpConnectionString");
+            settings.SaveConnectionString("ReleaseAdanpConnectionString");
 #endif
 
             Application.Run(new Form1());

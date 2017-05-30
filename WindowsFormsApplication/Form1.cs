@@ -39,6 +39,7 @@ namespace WindowsFormsApplication
             this.carregaDados();
             this.textBox1.Focus();
             this.timer1.Start();
+            this.dgTeste.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -12,9 +12,12 @@ namespace WindowsFormsApplication
 {
     public partial class Form1 : Form
     {
+        public bool ValidaInatividade { get; set; }
+
         public Form1()
         {
             InitializeComponent();
+            this.ValidaInatividade = true;
         }
         private void carregaDados()
         {
@@ -41,7 +44,7 @@ namespace WindowsFormsApplication
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.labelHora.Text = DateTime.Now.ToLongTimeString();
-            if (Program.GetLastInputTime() > 20)
+            if (Program.GetLastInputTime() > 20 && ValidaInatividade)
             {
                 this.timer1.Stop();
                 MessageBox.Show("Desconectado por inativade (20 sec) teste");

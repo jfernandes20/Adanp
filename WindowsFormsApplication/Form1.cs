@@ -35,6 +35,19 @@ namespace WindowsFormsApplication
             
             this.carregaDados();
             this.textBox1.Focus();
+            this.timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.labelHora.Text = DateTime.Now.ToLongTimeString();
+            if (Program.GetLastInputTime() > 20)
+            {
+                this.timer1.Stop();
+                MessageBox.Show("Desconectado por inativade (20 sec) teste");
+                Application.Exit();
+
+            }
         }
     }
 }

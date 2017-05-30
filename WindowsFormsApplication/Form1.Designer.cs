@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgTeste = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelHora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgTeste)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +94,24 @@
             this.maskedTextBox1.Size = new System.Drawing.Size(118, 20);
             this.maskedTextBox1.TabIndex = 1;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelHora
+            // 
+            this.labelHora.AutoSize = true;
+            this.labelHora.Location = new System.Drawing.Point(652, 460);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(0, 13);
+            this.labelHora.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 456);
+            this.ClientSize = new System.Drawing.Size(733, 491);
+            this.Controls.Add(this.labelHora);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -120,6 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelHora;
     }
 }
 

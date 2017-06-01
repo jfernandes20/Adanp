@@ -59,7 +59,7 @@ namespace WindowsFormsApplication
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.lbHora.Text = DateTime.Now.ToLongTimeString();
+            this.labelHora.Text = DateTime.Now.ToLongTimeString();
             if (Program.GetLastInputTime() > 20 && ValidaInatividade)
             {
                 this.timer1.Stop();
@@ -71,6 +71,13 @@ namespace WindowsFormsApplication
         private void FormMenu_Load(object sender, EventArgs e)
         {
             this.timer1.Start();
+        }
+
+        private void cadastroDeQuestõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastroQuestoes form = new FormCadastroQuestoes();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
         }
     }
 }

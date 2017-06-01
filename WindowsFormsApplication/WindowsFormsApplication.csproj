@@ -56,6 +56,12 @@
     <Compile Include="FormBase\FormBase.designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCadastroQuestoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastroQuestoes.Designer.cs">
+      <DependentUpon>FormCadastroQuestoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCadastroSoftware.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastroQuestoes.resx">
+      <DependentUpon>FormCadastroQuestoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>

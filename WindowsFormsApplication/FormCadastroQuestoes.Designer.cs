@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication
 {
-    partial class FormBase
+    partial class FormCadastroQuestoes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBase));
             this.SuspendLayout();
             // 
-            // FormBase
+            // FormCadastroQuestoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormBase";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormBase";
+            this.ClientSize = new System.Drawing.Size(719, 550);
+            this.Name = "FormCadastroQuestoes";
+            this.Text = "FormCadastroQuestoes";
             this.ResumeLayout(false);
 
         }

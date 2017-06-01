@@ -11,6 +11,7 @@ namespace WindowsFormsApplication
 {
     public partial class FormBase : Form
     {
+        public bool ValidaInatividade { get; set; }
         public FormBase()
         {
             InitializeComponent();

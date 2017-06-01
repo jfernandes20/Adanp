@@ -56,6 +56,12 @@
     <Compile Include="FormBase\FormBase.designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCadastroSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCadastroSoftware.Designer.cs">
+      <DependentUpon>FormCadastroSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>

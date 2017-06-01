@@ -57,7 +57,7 @@ namespace WindowsFormsApplication
             settings.SaveConnectionString("ReleaseAdanpConnectionString");
 #endif
 
-            Application.Run(new Form1());
+            Application.Run(new FormMenu());
         }
     }
 }

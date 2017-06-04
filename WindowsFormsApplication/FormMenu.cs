@@ -12,11 +12,12 @@ namespace WindowsFormsApplication
 {
     public partial class FormMenu : FormBase
     {
-
+        protected override bool ValidaInatividade { get; set; }
         public FormMenu()
         {
             InitializeComponent();
-            this.ValidaInatividade = true;
+            this.ValidaInatividade = false;
+
         }
 
         private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -57,12 +58,11 @@ namespace WindowsFormsApplication
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        protected override void timer1_Tick(object sender, EventArgs e)
         {
             this.labelHora.Text = DateTime.Now.ToLongTimeString();
             if (Program.GetLastInputTime() > 20 && ValidaInatividade)
             {
-                this.timer1.Stop();
                 MessageBox.Show("Desconectado por inativade (20 sec) teste");
                 Application.Exit();
             }
@@ -70,12 +70,24 @@ namespace WindowsFormsApplication
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            this.timer1.Start();
+
         }
 
         private void cadastroDeQuestõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCadastroQuestoes form = new FormCadastroQuestoes();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
+        }
+
+        private void FormMenu_Activated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormCadastroSoftware form = new FormCadastroSoftware();
             form.MdiParent = this;
             ShowUniqueInstance(form);
         }

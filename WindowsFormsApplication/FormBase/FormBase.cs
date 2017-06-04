@@ -11,10 +11,17 @@ namespace WindowsFormsApplication
 {
     public partial class FormBase : Form
     {
-        public bool ValidaInatividade { get; set; }
+        protected virtual bool ValidaInatividade { get; set; }
+        protected String mensagemDesconectado = "Desconectado por inativade (20 sec) teste";
         public FormBase()
         {
             InitializeComponent();
+            timer1.Start();
+        }
+
+        protected virtual void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

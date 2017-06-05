@@ -13,7 +13,7 @@ namespace ClassLibrary
         public int Id { get; set; }
         public int CaracteristicaNumero { get; set; }
         public string CaracteristicaNome { get; set; }
-        List<SubCaracteristica> SubCaracteristicas { get; set; }
+        public List<SubCaracteristica> SubCaracteristicas { get; set; }
 
         public List<Caracteristica> ListarCaracteristicas()
         {

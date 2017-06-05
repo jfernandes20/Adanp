@@ -12,6 +12,7 @@ namespace WindowsFormsApplication
     public partial class FormBase : Form
     {
         protected virtual bool ValidaInatividade { get; set; }
+        protected int tempoInativo = 10;
         protected String mensagemDesconectado = "Desconectado por inativade (20 sec) teste";
         public FormBase()
         {

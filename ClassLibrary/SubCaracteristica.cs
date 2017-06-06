@@ -11,7 +11,7 @@ namespace ClassLibrary
     public class SubCaracteristica
     {
         public int Id { get; set; }
-        public int CaracteristicaId { get; set; }
+        public Caracteristica CaracteristicaId { get; set; }
         public string SubCaracteristicaNome { get; set; }
 
         public static List<SubCaracteristica> ListarSubCaracteristicas()
@@ -33,7 +33,7 @@ namespace ClassLibrary
             {
                 SubCaracteristica sub = new SubCaracteristica();
                 sub.Id = Convert.ToInt32(linhaSub["SubCaracteristicaId"]);
-                sub.CaracteristicaId = Convert.ToInt32(linhaSub["CaracteristicaId"]);
+                sub.CaracteristicaId = new Caracteristica() { Id = Convert.ToInt32(linhaSub["CaracteristicaId"]) };
                 sub.SubCaracteristicaNome = linhaSub["SubCaracteristicaNome"].ToString();
                 lista.Add(sub);
             }

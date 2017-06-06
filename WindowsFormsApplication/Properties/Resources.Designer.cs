@@ -63,6 +63,16 @@ namespace WindowsFormsApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditarRelatorio {
+            get {
+                object obj = ResourceManager.GetObject("EditarRelatorio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ícone_ES_Trasp {
             get {
                 object obj = ResourceManager.GetObject("Ícone_ES_Trasp", resourceCulture);

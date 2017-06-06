@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SQLite;
-using System.Configuration;
+
 
 namespace ClassLibrary
 {
@@ -15,7 +15,7 @@ namespace ClassLibrary
         public string CaracteristicaNome { get; set; }
         public List<SubCaracteristica> SubCaracteristicas { get; set; }
 
-        public List<Caracteristica> ListarCaracteristicas()
+        public static List<Caracteristica> ListarCaracteristicas()
         {
             DataTable tabelaRetorno = new DataTable();
             using (SQLiteConnection connection = AppSetting.retornaConexao())
@@ -40,7 +40,7 @@ namespace ClassLibrary
                 caract.CaracteristicaNome = linha["CaracteristicaNome"].ToString();
 
                 caract.SubCaracteristicas = new List<SubCaracteristica>();
-                caract.SubCaracteristicas = sub.Where(d => d.CaracteristicaId.Equals(caract.Id)).ToList();
+                caract.SubCaracteristicas = sub.Where(d => d.CaracteristicaId.Id.Equals(caract.Id)).ToList();
 
                 lista.Add(caract);
             }

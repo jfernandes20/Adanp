@@ -13,21 +13,24 @@ namespace WindowsFormsApplication
     public partial class FormCadastroQuestoes : FormBase
     {
         protected override bool ValidaInatividade { get; set; }
-        private List<Caracteristica> caracteristas = new List<Caracteristica>();
+        private List<Caracteristica> caracteristicas = new List<Caracteristica>();
+        
         public FormCadastroQuestoes()
         {
             InitializeComponent();
-            Caracteristica carc = new Caracteristica();
-            caracteristas = carc.ListarCaracteristicas();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            caracteristicas = Caracteristica.ListarCaracteristicas();
         }
 
         private void FormCadastroQuestoes_Load(object sender, EventArgs e)
         {
             this.ValidaInatividade = true;
-            this.caracteristas.Add(new Caracteristica { Id = 0, CaracteristicaNome = "Selecione", CaracteristicaNumero = 0 });
+            this.caracteristicas.Add(new Caracteristica { Id = 0, CaracteristicaNome = "Selecione", CaracteristicaNumero = 0 });
             this.cbCaracteristica.DisplayMember = "Nome";
             this.cbCaracteristica.ValueMember = "Id";
-            this.cbCaracteristica.DataSource = caracteristas.Select(d => new { Nome = d.CaracteristicaNome, Id = d.Id, d.CaracteristicaNumero }).OrderBy(d => d.CaracteristicaNumero).ToList();
+            this.cbCaracteristica.DataSource = caracteristicas.Select(d => new { Nome = d.CaracteristicaNome, Id = d.Id, d.CaracteristicaNumero }).OrderBy(d => d.CaracteristicaNumero).ToList();
 
         }
         protected override void timer1_Tick(object sender, EventArgs e)
@@ -35,6 +38,7 @@ namespace WindowsFormsApplication
             if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
             {
                 this.timer1.Stop();
+                MessageBox.Show(this.mensagemDesconectado,"Inatividade",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 this.cbCaracteristica.SelectedIndex = 0;
                 this.cbCaracteristica.Focus();
                 this.timer1.Start();
@@ -47,7 +51,7 @@ namespace WindowsFormsApplication
             {
                 this.cbSubCararcteristica.Visible = true;
                 this.lbSubCategoria.Visible = true;
-                List<SubCaracteristica> listaSub = this.caracteristas.Where(d => d.Id == Convert.ToInt16(this.cbCaracteristica.SelectedValue)).First().SubCaracteristicas.ToList();
+                List<SubCaracteristica> listaSub = this.caracteristicas.Where(d => d.Id == Convert.ToInt16(this.cbCaracteristica.SelectedValue)).First().SubCaracteristicas.ToList();
                 listaSub.Add(new SubCaracteristica { Id = 0, SubCaracteristicaNome = "Selecione" });
                 this.cbSubCararcteristica.DisplayMember = "SubCaracteristicaNome";
                 this.cbSubCararcteristica.ValueMember = "Id";
@@ -60,11 +64,6 @@ namespace WindowsFormsApplication
                 this.cbSubCararcteristica.DataSource = null;
                 this.lbSubCategoria.Visible = false;
             }
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -90,6 +89,15 @@ namespace WindowsFormsApplication
         private void txtQuestao_TextChanged(object sender, EventArgs e)
         {
             this.lbCaracteres.Text = this.txtQuestao.Text.Length.ToString();
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            Questao quest = new Questao();
+            quest.Id = 0;
+            quest.SubCaracteristicaId = new SubCaracteristica() { Id = Convert.ToInt32(this.cbSubCararcteristica.SelectedValue), CaracteristicaId = new Caracteristica(), SubCaracteristicaNome = this.cbSubCararcteristica.SelectedText.ToString() };
+            quest.TextoQuestao = this.txtQuestao.Text.Replace('\n',' ');
+            quest.Salvar(quest);
         }
     }
 }

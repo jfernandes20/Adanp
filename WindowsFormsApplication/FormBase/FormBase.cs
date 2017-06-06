@@ -13,7 +13,7 @@ namespace WindowsFormsApplication
     {
         protected virtual bool ValidaInatividade { get; set; }
         protected int tempoInativo = 10;
-        protected String mensagemDesconectado = "Desconectado por inativade (20 sec) teste";
+        protected String mensagemDesconectado = "Sessão encerrada devido inátividade";
         public FormBase()
         {
             InitializeComponent();

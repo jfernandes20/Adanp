@@ -33,7 +33,7 @@
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avaliaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroDeQuestõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRodape = new System.Windows.Forms.Panel();
@@ -84,17 +84,17 @@
             // configuraçãoToolStripMenuItem
             // 
             this.configuraçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroDeQuestõesToolStripMenuItem});
+            this.CadastrarToolStripMenuItem});
             this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
-            this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
-            this.configuraçãoToolStripMenuItem.Text = "Configuração";
+            this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.configuraçãoToolStripMenuItem.Text = "Questões";
             // 
-            // cadastroDeQuestõesToolStripMenuItem
+            // CadastrarToolStripMenuItem
             // 
-            this.cadastroDeQuestõesToolStripMenuItem.Name = "cadastroDeQuestõesToolStripMenuItem";
-            this.cadastroDeQuestõesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.cadastroDeQuestõesToolStripMenuItem.Text = "Cadastro de Questões";
-            this.cadastroDeQuestõesToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeQuestõesToolStripMenuItem_Click);
+            this.CadastrarToolStripMenuItem.Name = "CadastrarToolStripMenuItem";
+            this.CadastrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CadastrarToolStripMenuItem.Text = "Cadastrar";
+            this.CadastrarToolStripMenuItem.Click += new System.EventHandler(this.CadastrarToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -150,7 +150,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // labelUsuarioCorrente
             // 
@@ -176,7 +175,6 @@
             this.Name = "FormMenu";
             this.Text = "Adanp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.FormMenu_Activated);
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.menusStrip.ResumeLayout(false);
             this.menusStrip.PerformLayout();
@@ -199,7 +197,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem avaliaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroDeQuestõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CadastrarToolStripMenuItem;
         private System.Windows.Forms.Panel panelRodape;
         private System.Windows.Forms.Label labelHora;
         private System.Windows.Forms.Panel panel1;

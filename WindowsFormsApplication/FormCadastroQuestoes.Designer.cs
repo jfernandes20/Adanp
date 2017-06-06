@@ -33,7 +33,7 @@
             this.lbSubCategoria = new System.Windows.Forms.Label();
             this.cbSubCararcteristica = new System.Windows.Forms.ComboBox();
             this.txtQuestao = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
             this.lbQuestao = new System.Windows.Forms.Label();
             this.lbTextoCaractereres = new System.Windows.Forms.Label();
             this.lbCaracteres = new System.Windows.Forms.Label();
@@ -89,15 +89,15 @@
             this.txtQuestao.Visible = false;
             this.txtQuestao.TextChanged += new System.EventHandler(this.txtQuestao_TextChanged);
             // 
-            // button1
+            // buttonSalvar
             // 
-            this.button1.Location = new System.Drawing.Point(376, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSalvar.Location = new System.Drawing.Point(376, 307);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.TabIndex = 5;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // lbQuestao
             // 
@@ -139,7 +139,7 @@
             this.Controls.Add(this.lbCaracteres);
             this.Controls.Add(this.lbTextoCaractereres);
             this.Controls.Add(this.lbQuestao);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.txtQuestao);
             this.Controls.Add(this.lbSubCategoria);
             this.Controls.Add(this.cbSubCararcteristica);
@@ -160,7 +160,7 @@
         private System.Windows.Forms.Label lbSubCategoria;
         private System.Windows.Forms.ComboBox cbSubCararcteristica;
         private System.Windows.Forms.RichTextBox txtQuestao;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Label lbQuestao;
         private System.Windows.Forms.Label lbTextoCaractereres;
         private System.Windows.Forms.Label lbCaracteres;

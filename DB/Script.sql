@@ -50,5 +50,13 @@ INSERT INTO SubCaracteristica (CaracteristicaId, SubCaracteristicaNome) VALUES
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Conformidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para Substituir');
 
+CREATE TABLE Questoes
+(
+    Id                      INTEGER PRIMARY KEY AUTOINCREMENT,
+    SubCaracteristicaId     INTEGER,
+    TextoQuestao            VARCHAR(1000),
+    
+    CONSTRAINT FK_Questoes_SubCaracteristica FOREIGN KEY (SubCaracteristicaId) REFERENCES SubCaracteristica (Id)
+)
 
-SELECT C.Id [CaracteristicaId], C.CaracteristicaNumero, C.CaracteristicaNome FROM Caracteristica; SELECT SC.CaracteristicaId, SC.SubCaracteristicaNome FROM SubCaracteristica;
+

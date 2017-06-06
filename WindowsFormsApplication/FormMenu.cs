@@ -61,26 +61,14 @@ namespace WindowsFormsApplication
         protected override void timer1_Tick(object sender, EventArgs e)
         {
             this.labelHora.Text = DateTime.Now.ToLongTimeString();
-            if (Program.GetLastInputTime() > 20 && ValidaInatividade)
+            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
             {
                 MessageBox.Show("Desconectado por inativade (20 sec) teste");
-                Application.Exit();
+
             }
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cadastroDeQuestõesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormCadastroQuestoes form = new FormCadastroQuestoes();
-            form.MdiParent = this;
-            ShowUniqueInstance(form);
-        }
-
-        private void FormMenu_Activated(object sender, EventArgs e)
         {
 
         }
@@ -92,9 +80,11 @@ namespace WindowsFormsApplication
             ShowUniqueInstance(form);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void CadastrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormQuestoes form = new FormQuestoes();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
         }
     }
 }

@@ -99,6 +99,12 @@
     <Compile Include="FormQuestoes.Designer.cs">
       <DependentUpon>FormQuestoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoftware.Designer.cs">
+      <DependentUpon>FormSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestoes.resx">
       <DependentUpon>FormQuestoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSoftware.resx">
+      <DependentUpon>FormSoftware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

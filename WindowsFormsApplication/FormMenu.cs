@@ -70,7 +70,7 @@ namespace WindowsFormsApplication
 
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormCadastroSoftware form = new FormCadastroSoftware();
+            FormSoftware form = new FormSoftware();
             form.MdiParent = this;
             ShowUniqueInstance(form);
         }

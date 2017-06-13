@@ -33,7 +33,7 @@ namespace WindowsFormsApplication
         {
             int caracteristicaId = this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue : 0;
             int subCaracteristicaId = this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue : 0;
-            this.listaQuestoes = Questao.ListarQuestao(this.toolStripButtonFiltrar.Text, caracteristicaId, subCaracteristicaId);
+            this.listaQuestoes = Questao.ListarQuestao(this.toolStripTextBoxCriterio.Text, caracteristicaId, subCaracteristicaId);
             this.dgQuestoes.DataSource = listaQuestoes.Select(d => new { d.Id, Caracteristica = d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, SubCaracteristica = d.SubCaracteristicaId.SubCaracteristicaNome, Questão = d.TextoQuestao }).OrderBy(d => d.Id).AsEnumerable().ToList();
             this.dgQuestoes.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgQuestoes.Columns["Caracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

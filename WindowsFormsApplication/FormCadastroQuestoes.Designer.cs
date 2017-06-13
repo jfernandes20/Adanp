@@ -37,10 +37,14 @@
             this.lbQuestao = new System.Windows.Forms.Label();
             this.lbTextoCaractereres = new System.Windows.Forms.Label();
             this.lbCaracteres = new System.Windows.Forms.Label();
+            this.lbErroCaracteristica = new System.Windows.Forms.Label();
+            this.lbErroSubCaracteristica = new System.Windows.Forms.Label();
+            this.lbErroQuestao = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbCaracteristica
             // 
+            this.cbCaracteristica.BackColor = System.Drawing.SystemColors.Window;
             this.cbCaracteristica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCaracteristica.FormattingEnabled = true;
             this.cbCaracteristica.Location = new System.Drawing.Point(50, 53);
@@ -81,6 +85,7 @@
             // 
             // txtQuestao
             // 
+            this.txtQuestao.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtQuestao.Location = new System.Drawing.Point(50, 160);
             this.txtQuestao.Name = "txtQuestao";
             this.txtQuestao.Size = new System.Drawing.Size(401, 115);
@@ -112,8 +117,8 @@
             // lbTextoCaractereres
             // 
             this.lbTextoCaractereres.AutoSize = true;
-            this.lbTextoCaractereres.ForeColor = System.Drawing.Color.Red;
-            this.lbTextoCaractereres.Location = new System.Drawing.Point(47, 278);
+            this.lbTextoCaractereres.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbTextoCaractereres.Location = new System.Drawing.Point(373, 278);
             this.lbTextoCaractereres.Name = "lbTextoCaractereres";
             this.lbTextoCaractereres.Size = new System.Drawing.Size(61, 13);
             this.lbTextoCaractereres.TabIndex = 7;
@@ -123,19 +128,55 @@
             // lbCaracteres
             // 
             this.lbCaracteres.AutoSize = true;
-            this.lbCaracteres.ForeColor = System.Drawing.Color.Red;
-            this.lbCaracteres.Location = new System.Drawing.Point(114, 278);
+            this.lbCaracteres.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbCaracteres.Location = new System.Drawing.Point(440, 278);
             this.lbCaracteres.Name = "lbCaracteres";
             this.lbCaracteres.Size = new System.Drawing.Size(13, 13);
             this.lbCaracteres.TabIndex = 8;
             this.lbCaracteres.Text = "0";
             this.lbCaracteres.Visible = false;
             // 
+            // lbErroCaracteristica
+            // 
+            this.lbErroCaracteristica.AutoSize = true;
+            this.lbErroCaracteristica.ForeColor = System.Drawing.Color.Red;
+            this.lbErroCaracteristica.Location = new System.Drawing.Point(283, 56);
+            this.lbErroCaracteristica.Name = "lbErroCaracteristica";
+            this.lbErroCaracteristica.Size = new System.Drawing.Size(92, 13);
+            this.lbErroCaracteristica.TabIndex = 9;
+            this.lbErroCaracteristica.Text = "Campo obrigatório";
+            this.lbErroCaracteristica.Visible = false;
+            // 
+            // lbErroSubCaracteristica
+            // 
+            this.lbErroSubCaracteristica.AutoSize = true;
+            this.lbErroSubCaracteristica.ForeColor = System.Drawing.Color.Red;
+            this.lbErroSubCaracteristica.Location = new System.Drawing.Point(283, 106);
+            this.lbErroSubCaracteristica.Name = "lbErroSubCaracteristica";
+            this.lbErroSubCaracteristica.Size = new System.Drawing.Size(92, 13);
+            this.lbErroSubCaracteristica.TabIndex = 9;
+            this.lbErroSubCaracteristica.Text = "Campo obrigatório";
+            this.lbErroSubCaracteristica.Visible = false;
+            // 
+            // lbErroQuestao
+            // 
+            this.lbErroQuestao.AutoSize = true;
+            this.lbErroQuestao.ForeColor = System.Drawing.Color.Red;
+            this.lbErroQuestao.Location = new System.Drawing.Point(47, 278);
+            this.lbErroQuestao.Name = "lbErroQuestao";
+            this.lbErroQuestao.Size = new System.Drawing.Size(92, 13);
+            this.lbErroQuestao.TabIndex = 10;
+            this.lbErroQuestao.Text = "Campo obrigatório";
+            this.lbErroQuestao.Visible = false;
+            // 
             // FormCadastroQuestoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 342);
+            this.ClientSize = new System.Drawing.Size(497, 342);
+            this.Controls.Add(this.lbErroQuestao);
+            this.Controls.Add(this.lbErroSubCaracteristica);
+            this.Controls.Add(this.lbErroCaracteristica);
             this.Controls.Add(this.lbCaracteres);
             this.Controls.Add(this.lbTextoCaractereres);
             this.Controls.Add(this.lbQuestao);
@@ -164,5 +205,8 @@
         private System.Windows.Forms.Label lbQuestao;
         private System.Windows.Forms.Label lbTextoCaractereres;
         private System.Windows.Forms.Label lbCaracteres;
+        private System.Windows.Forms.Label lbErroCaracteristica;
+        private System.Windows.Forms.Label lbErroSubCaracteristica;
+        private System.Windows.Forms.Label lbErroQuestao;
     }
 }

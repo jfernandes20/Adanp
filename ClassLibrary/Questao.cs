@@ -49,18 +49,18 @@ namespace ClassLibrary
             }
             return listaResultado;
         }
-        public void Salvar(Questao quest)
+        public void Salvar()
         {
             try
             {
-                if (quest.Id == 0)
+                if (this.Id == 0)
                 {
                     using (SQLiteConnection connection = AppSetting.retornaConexao())
                     {
                         connection.Open();
                         SQLiteCommand command = new SQLiteCommand();
                         command.Connection = connection;
-                        command.CommandText = String.Format("INSERT INTO Questao (SubCaracteristicaId,TextoQuestao) VALUES ({0},'{1}')", quest.SubCaracteristicaId.Id, quest.TextoQuestao);
+                        command.CommandText = String.Format("INSERT INTO Questao (SubCaracteristicaId,TextoQuestao) VALUES ({0},'{1}')", this.SubCaracteristicaId.Id, this.TextoQuestao);
                         command.CommandType = CommandType.Text;
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -73,7 +73,7 @@ namespace ClassLibrary
                         connection.Open();
                         SQLiteCommand command = new SQLiteCommand();
                         command.Connection = connection;
-                        command.CommandText = String.Format("UPDATE Questao SET SubCaracteristicaId = {0}, TextoQuestao = '{1}')", quest.SubCaracteristicaId.Id, quest.TextoQuestao);
+                        command.CommandText = String.Format("UPDATE Questao SET SubCaracteristicaId = {0}, TextoQuestao = '{1}' where Id = {2}", this.SubCaracteristicaId.Id, this.TextoQuestao,this.Id);
                         command.CommandType = CommandType.Text;
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -85,6 +85,26 @@ namespace ClassLibrary
                 throw ex;
             }
 
+        }
+        public void Excluir()
+        {
+            try
+            {
+                using (SQLiteConnection connection = AppSetting.retornaConexao())
+                {
+                    connection.Open();
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = String.Format("DELETE FROM Questao where Id = {0}", this.Id);
+                    command.CommandType = CommandType.Text;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

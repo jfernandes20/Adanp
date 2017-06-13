@@ -16,24 +16,38 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
         }
-        List<Caracteristica> caracteristicas = new List<Caracteristica>();
+        private List<Caracteristica> caracteristicas = new List<Caracteristica>();
+        private List<Questao> listaQuestoes = new List<Questao>();
         private void toolStripButtonIncluir_Click(object sender, EventArgs e)
         {
-            FormCadastroQuestoes form = new FormCadastroQuestoes();
+            FormCadastroQuestoes form = new FormCadastroQuestoes(new Questao());
             form.ShowDialog();
         }
 
         private void FormQuestoes_Load(object sender, EventArgs e)
         {
             CarregaCombos();
-            this.dgQuestoes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void CarregaDados()
         {
             int caracteristicaId = this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue : 0;
             int subCaracteristicaId = this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue : 0;
-
-            this.dgQuestoes.DataSource = Questao.ListarQuestao(this.toolStripButtonFiltrar.Text, caracteristicaId, subCaracteristicaId).Select(d => new { d.Id, d.TextoQuestao, d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, d.SubCaracteristicaId.SubCaracteristicaNome }).OrderBy(d => d.Id).AsEnumerable().ToList();
+            this.listaQuestoes =  Questao.ListarQuestao(this.toolStripButtonFiltrar.Text, caracteristicaId, subCaracteristicaId);
+            this.dgQuestoes.DataSource = listaQuestoes.Select(d => new { d.Id, Caracteristica = d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, SubCaracteristica = d.SubCaracteristicaId.SubCaracteristicaNome, Questão = d.TextoQuestao }).OrderBy(d => d.Id).AsEnumerable().ToList();
+            this.dgQuestoes.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgQuestoes.Columns["Caracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgQuestoes.Columns["SubCaracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgQuestoes.Columns["Questão"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            if (this.dgQuestoes.Rows.Count == 0)
+            {
+                toolStripButtonEditar.Enabled = false;
+                toolStripButtonExcluir.Enabled = false;
+            }
+            else
+            {
+                toolStripButtonEditar.Enabled = true;
+                toolStripButtonExcluir.Enabled = true;
+            }
         }
         private void CarregaCombos()
         {
@@ -70,6 +84,19 @@ namespace WindowsFormsApplication
         private void toolStripTextBoxCriterio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13) CarregaDados();
+        }
+
+        private void toolStripButtonEditar_Click(object sender, EventArgs e)
+        {
+            Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
+            FormCadastroQuestoes fc = new FormCadastroQuestoes(questaoSelecionada);
+            fc.ShowDialog();
+        }
+
+        private void toolStripButtonExcluir_Click(object sender, EventArgs e)
+        {
+            Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
+            questaoSelecionada.Excluir();
         }
     }
 }

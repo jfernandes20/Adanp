@@ -22,7 +22,7 @@ namespace WindowsFormsApplication
             if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
             {
                 this.timer1.Stop();
-                MessageBox.Show(this.mensagemDesconectado);
+                MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.timer1.Start();
                 this.Close();
             }

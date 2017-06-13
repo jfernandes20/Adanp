@@ -31,20 +31,25 @@ INSERT INTO SubCaracteristica (CaracteristicaId, SubCaracteristicaNome) VALUES
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Adequação'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Acurácia'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Interoperabilidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Segurança'),
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Conformidade'),
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Segurança de Acesso'),
+
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Maturidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Tolerância a Falhas'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Recuperabilidade'),
+
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 3), 'Inteligibilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 3), 'Apreensibilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 3), 'Operacionalidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 3), 'Atratividade'),
+
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 4), 'Tempo'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 4), 'Recursos'),
+
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 5), 'Analisabilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 5), 'Modificabilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 5), 'Estabilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 5), 'Testabilidade'),
+
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Adaptabilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para ser Instalado'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Conformidade'),
@@ -57,6 +62,8 @@ CREATE TABLE Questoes
     TextoQuestao            VARCHAR(1000),
     
     CONSTRAINT FK_Questoes_SubCaracteristica FOREIGN KEY (SubCaracteristicaId) REFERENCES SubCaracteristica (Id)
-)
+);
 
 
+--Resetar autoIncrement
+--delete from sqlite_sequence where name='Questoes';

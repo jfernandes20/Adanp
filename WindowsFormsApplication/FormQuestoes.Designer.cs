@@ -41,7 +41,6 @@
             this.toolStripButtonIncluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExcluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.dgQuestoes = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgQuestoes)).BeginInit();
@@ -61,8 +60,7 @@
             this.toolStripSeparator2,
             this.toolStripButtonIncluir,
             this.toolStripButtonEditar,
-            this.toolStripButtonExcluir,
-            this.toolStripSeparator4});
+            this.toolStripButtonExcluir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1079, 29);
@@ -135,32 +133,33 @@
             // toolStripButtonEditar
             // 
             this.toolStripButtonEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEditar.Enabled = false;
             this.toolStripButtonEditar.Image = global::WindowsFormsApplication.Properties.Resources.EditarRelatorio;
             this.toolStripButtonEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEditar.Name = "toolStripButtonEditar";
             this.toolStripButtonEditar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonEditar.Text = "Editar";
+            this.toolStripButtonEditar.Click += new System.EventHandler(this.toolStripButtonEditar_Click);
             // 
             // toolStripButtonExcluir
             // 
             this.toolStripButtonExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExcluir.Enabled = false;
             this.toolStripButtonExcluir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExcluir.Image")));
             this.toolStripButtonExcluir.Name = "toolStripButtonExcluir";
             this.toolStripButtonExcluir.RightToLeftAutoMirrorImage = true;
             this.toolStripButtonExcluir.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonExcluir.Text = "Excluir";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 29);
+            this.toolStripButtonExcluir.Click += new System.EventHandler(this.toolStripButtonExcluir_Click);
             // 
             // dgQuestoes
             // 
             this.dgQuestoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgQuestoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgQuestoes.Location = new System.Drawing.Point(0, 29);
+            this.dgQuestoes.MultiSelect = false;
             this.dgQuestoes.Name = "dgQuestoes";
+            this.dgQuestoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgQuestoes.Size = new System.Drawing.Size(1079, 584);
             this.dgQuestoes.TabIndex = 0;
             // 
@@ -192,7 +191,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonIncluir;
         private System.Windows.Forms.ToolStripButton toolStripButtonExcluir;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBoxCaracteristica;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;

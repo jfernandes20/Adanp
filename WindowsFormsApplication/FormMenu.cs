@@ -61,11 +61,6 @@ namespace WindowsFormsApplication
         protected override void timer1_Tick(object sender, EventArgs e)
         {
             this.labelHora.Text = DateTime.Now.ToLongTimeString();
-            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
-            {
-                MessageBox.Show("Desconectado por inativade (20 sec) teste");
-
-            }
         }
 
         private void FormMenu_Load(object sender, EventArgs e)

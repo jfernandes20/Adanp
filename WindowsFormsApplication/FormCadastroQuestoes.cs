@@ -112,15 +112,19 @@ namespace WindowsFormsApplication
             try
             {
                 quest.SubCaracteristicaId = new SubCaracteristica() { Id = Convert.ToInt32(this.cbSubCararcteristica.SelectedValue), CaracteristicaId = new Caracteristica(), SubCaracteristicaNome = this.cbSubCararcteristica.SelectedText.ToString() };
-                quest.TextoQuestao = this.txtQuestao.Text.Replace('\n', ' ');
+                quest.TextoQuestao = this.txtQuestao.Text.Replace('\n', ' ').Trim();
                 if (this.validarQuestoes())
+                {
                     quest.Salvar();
+                    MessageBox.Show("Questão de avaliação salva com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
                 else
                     MessageBox.Show("Preencha todos os campos obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um  erro ao tentar realizar o cadastro da questão.\nDetalhes: "+ ex.Message,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um  erro ao tentar realizar salvar questão.\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -144,6 +148,11 @@ namespace WindowsFormsApplication
                 camposEmBranco++;
             }
             return camposEmBranco == 0;
+        }
+
+        private void FormCadastroQuestoes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.timer1.Dispose();
         }
     }
 }

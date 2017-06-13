@@ -188,6 +188,7 @@
             this.Controls.Add(this.cbCaracteristica);
             this.Name = "FormCadastroQuestoes";
             this.Text = "Cadastro de Questões";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCadastroQuestoes_FormClosing);
             this.Load += new System.EventHandler(this.FormCadastroQuestoes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

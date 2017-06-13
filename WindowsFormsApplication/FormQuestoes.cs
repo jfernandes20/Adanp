@@ -22,6 +22,7 @@ namespace WindowsFormsApplication
         {
             FormCadastroQuestoes form = new FormCadastroQuestoes(new Questao());
             form.ShowDialog();
+            this.CarregaDados();
         }
 
         private void FormQuestoes_Load(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace WindowsFormsApplication
         {
             int caracteristicaId = this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxCaracteristica.ComboBox.SelectedValue : 0;
             int subCaracteristicaId = this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue : 0;
-            this.listaQuestoes =  Questao.ListarQuestao(this.toolStripButtonFiltrar.Text, caracteristicaId, subCaracteristicaId);
+            this.listaQuestoes = Questao.ListarQuestao(this.toolStripButtonFiltrar.Text, caracteristicaId, subCaracteristicaId);
             this.dgQuestoes.DataSource = listaQuestoes.Select(d => new { d.Id, Caracteristica = d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, SubCaracteristica = d.SubCaracteristicaId.SubCaracteristicaNome, Questão = d.TextoQuestao }).OrderBy(d => d.Id).AsEnumerable().ToList();
             this.dgQuestoes.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgQuestoes.Columns["Caracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -88,15 +89,34 @@ namespace WindowsFormsApplication
 
         private void toolStripButtonEditar_Click(object sender, EventArgs e)
         {
-            Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
-            FormCadastroQuestoes fc = new FormCadastroQuestoes(questaoSelecionada);
-            fc.ShowDialog();
+            try
+            {
+                Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
+                FormCadastroQuestoes fc = new FormCadastroQuestoes(questaoSelecionada);
+                fc.ShowDialog();
+                this.CarregaDados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar editar questão de avaliação.\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void toolStripButtonExcluir_Click(object sender, EventArgs e)
         {
-            Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
-            questaoSelecionada.Excluir();
+            try
+            {
+                Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
+                DialogResult result = MessageBox.Show("Realmente deseja excluir essa questão de avaliaçaão?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                    questaoSelecionada.Excluir();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao tentar excluir questão de avaliação.\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

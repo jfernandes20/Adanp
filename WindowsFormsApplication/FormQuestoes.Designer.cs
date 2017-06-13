@@ -170,7 +170,7 @@
             this.Controls.Add(this.dgQuestoes);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormQuestoes";
-            this.Text = "FormQuestoes";
+            this.Text = "Questoes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormQuestoes_Load);
             this.toolStrip1.ResumeLayout(false);

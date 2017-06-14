@@ -64,6 +64,15 @@ CREATE TABLE Questoes
     CONSTRAINT FK_Questoes_SubCaracteristica FOREIGN KEY (SubCaracteristicaId) REFERENCES SubCaracteristica (Id)
 );
 
+CREATE TABLE Software
+(
+    Id                      INTEGER PRIMARY KEY AUTOINCREMENT,
+    NomeSoftware            VARCHAR(100),
+    TecnologiaSoftware      VARCHAR(100),
+    FornecedorSoftware      VARCHAR(100),
+    DataInsercao            DATETIME
+);
+
 
 --Resetar autoIncrement
 --delete from sqlite_sequence where name='Questoes';

@@ -82,5 +82,10 @@ namespace WindowsFormsApplication
             }
 
         }
+
+        private void toolStripTextBoxCriterio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13) this.CarregaDados();
+        }
     }
 }

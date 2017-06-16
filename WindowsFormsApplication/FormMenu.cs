@@ -81,5 +81,12 @@ namespace WindowsFormsApplication
             form.MdiParent = this;
             ShowUniqueInstance(form);
         }
+
+        private void avaliaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAvaliarSoftware form = new FormAvaliarSoftware();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
+        }
     }
 }

@@ -80,6 +80,7 @@
             this.avaliaçãoToolStripMenuItem.Name = "avaliaçãoToolStripMenuItem";
             this.avaliaçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avaliaçãoToolStripMenuItem.Text = "Avaliação";
+            this.avaliaçãoToolStripMenuItem.Click += new System.EventHandler(this.avaliaçãoToolStripMenuItem_Click);
             // 
             // configuraçãoToolStripMenuItem
             // 
@@ -92,7 +93,7 @@
             // CadastrarToolStripMenuItem
             // 
             this.CadastrarToolStripMenuItem.Name = "CadastrarToolStripMenuItem";
-            this.CadastrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CadastrarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.CadastrarToolStripMenuItem.Text = "Cadastro";
             this.CadastrarToolStripMenuItem.Click += new System.EventHandler(this.CadastrarToolStripMenuItem_Click);
             // 

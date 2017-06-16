@@ -68,6 +68,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAvaliacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAvaliacao.Designer.cs">
+      <DependentUpon>FormAvaliacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAvaliarSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAvaliarSoftware.Designer.cs">
+      <DependentUpon>FormAvaliarSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBase\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAvaliacao.resx">
+      <DependentUpon>FormAvaliacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAvaliarSoftware.resx">
+      <DependentUpon>FormAvaliarSoftware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
@@ -178,6 +196,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icone5-gd.png" />
     <Content Include="Ícone_ES_Trasp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

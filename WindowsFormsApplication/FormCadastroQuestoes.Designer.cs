@@ -58,18 +58,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(47, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Característica:";
+            this.label1.Text = "Característica";
             // 
             // lbSubCategoria
             // 
             this.lbSubCategoria.AutoSize = true;
             this.lbSubCategoria.Location = new System.Drawing.Point(47, 87);
             this.lbSubCategoria.Name = "lbSubCategoria";
-            this.lbSubCategoria.Size = new System.Drawing.Size(98, 13);
+            this.lbSubCategoria.Size = new System.Drawing.Size(95, 13);
             this.lbSubCategoria.TabIndex = 3;
-            this.lbSubCategoria.Text = "Sub-Característica:";
+            this.lbSubCategoria.Text = "Sub-Característica";
             this.lbSubCategoria.Visible = false;
             // 
             // cbSubCararcteristica
@@ -109,9 +109,9 @@
             this.lbQuestao.AutoSize = true;
             this.lbQuestao.Location = new System.Drawing.Point(47, 144);
             this.lbQuestao.Name = "lbQuestao";
-            this.lbQuestao.Size = new System.Drawing.Size(50, 13);
+            this.lbQuestao.Size = new System.Drawing.Size(47, 13);
             this.lbQuestao.TabIndex = 6;
-            this.lbQuestao.Text = "Questão:";
+            this.lbQuestao.Text = "Questão";
             this.lbQuestao.Visible = false;
             // 
             // lbTextoCaractereres

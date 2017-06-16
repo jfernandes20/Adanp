@@ -48,6 +48,7 @@
     <Compile Include="Avaliacao.cs" />
     <Compile Include="Caracteristica.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="NotaAvaliacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questao.cs" />
     <Compile Include="Software.cs" />
@@ -60,5 +61,5 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  -->
+  --> 
 </Project>

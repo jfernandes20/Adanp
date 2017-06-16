@@ -17,6 +17,7 @@ namespace WindowsFormsApplication
         Software softwareAvaliado = new Software();
         Avaliacao avaliacao = new Avaliacao();
         List<NotaAvaliacao> notas = new List<NotaAvaliacao>();
+
         int NumeroAtual = 0;
         public FormAvaliacao(Software soft)
         {
@@ -28,6 +29,7 @@ namespace WindowsFormsApplication
             this.CarregaQuestao();
             this.AtualizaTela();
             this.lbSoftware.Text = softwareAvaliado.NomeSoftware.ToString();
+            this.avaliacao.SoftwareId = softwareAvaliado;
         }
         private void CarregaQuestao()
         {
@@ -37,6 +39,23 @@ namespace WindowsFormsApplication
         {
             try
             {
+                NotaAvaliacao nota = new NotaAvaliacao();
+                if (radioButton1.Checked)
+                    nota.Nota = 1;
+                else if (radioButton2.Checked)
+                    nota.Nota = 2;
+                else if (radioButton3.Checked)
+                    nota.Nota = 3;
+                else if (radioButton4.Checked)
+                    nota.Nota = 4;
+                else if (radioButton5.Checked)
+                    nota.Nota = 5;
+                else
+                {
+                    MessageBox.Show("Nenhuma Nota selecionada");
+                }
+
+
                 this.questaoAtual = listaQuestoes.Where(d => d.NumeroQuestao == NumeroAtual).First();
                 this.lbCaracteristica.Text = questaoAtual.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome.ToString();
                 this.lbSubCaracteristica.Text = questaoAtual.SubCaracteristicaId.SubCaracteristicaNome.ToString();
@@ -57,7 +76,6 @@ namespace WindowsFormsApplication
             {
                 MessageBox.Show("Ocorreu um erro ao tentar alterar a questão de avaliação");
             }
-
         }
         private void button2_Click(object sender, EventArgs e)
         {

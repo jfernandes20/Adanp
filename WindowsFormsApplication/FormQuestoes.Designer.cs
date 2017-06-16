@@ -84,8 +84,8 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(78, 26);
-            this.toolStripLabel2.Text = "Caracteristica";
+            this.toolStripLabel2.Size = new System.Drawing.Size(81, 26);
+            this.toolStripLabel2.Text = "Característica:";
             // 
             // toolStripComboBoxCaracteristica
             // 
@@ -97,8 +97,8 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(98, 26);
-            this.toolStripLabel3.Text = "SubCaracteristica";
+            this.toolStripLabel3.Size = new System.Drawing.Size(106, 26);
+            this.toolStripLabel3.Text = "Sub-Característica:";
             // 
             // toolStripComboBoxSubCaracteristica
             // 

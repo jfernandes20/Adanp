@@ -37,7 +37,7 @@ namespace WindowsFormsApplication
             this.dgQuestoes.DataSource = listaQuestoes.Select(d => new { d.Id, Caracteristica = d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, SubCaracteristica = d.SubCaracteristicaId.SubCaracteristicaNome, Questão = d.TextoQuestao }).OrderBy(d => d.Id).AsEnumerable().ToList();
             this.dgQuestoes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgQuestoes.Columns["Caracteristica"].HeaderText = "Característica";
-            this.dgQuestoes.Columns["SubCaracteristica"].HeaderText = "Sub Característica";
+            this.dgQuestoes.Columns["SubCaracteristica"].HeaderText = "Sub-Característica";
 
             if (this.dgQuestoes.Rows.Count == 0)
             {

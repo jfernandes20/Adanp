@@ -22,8 +22,9 @@ namespace WindowsFormsApplication
         {
             this.listaSoftware = Software.ListarSoftware(this.toolStripTextBoxCriterio.Text);
             this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.Id, Nome = d.NomeSoftware, Fornecedor = d.FornecedorSoftware, Tecnologia = d.TecnologiaSoftware, DataCadastro = d.DataInsercao.ToString("dd/MM/yyyy") }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
-            this.dgSoftware.Columns["CodigoIdentificacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
+            this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
 
             if (this.dgSoftware.Rows.Count == 0)
             {

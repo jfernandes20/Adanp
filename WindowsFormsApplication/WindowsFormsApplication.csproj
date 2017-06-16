@@ -116,6 +116,9 @@
     <EmbeddedResource Include="FormCadastroQuestoes.resx">
       <DependentUpon>FormCadastroQuestoes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCadastroSoftware.resx">
+      <DependentUpon>FormCadastroSoftware.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>

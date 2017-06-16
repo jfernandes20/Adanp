@@ -79,6 +79,7 @@
             this.toolStripButtonFiltrar.Name = "toolStripButtonFiltrar";
             this.toolStripButtonFiltrar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonFiltrar.ToolTipText = "Filtrar";
+            this.toolStripButtonFiltrar.Click += new System.EventHandler(this.toolStripButtonFiltrar_Click);
             // 
             // toolStripSeparator2
             // 
@@ -93,6 +94,7 @@
             this.toolStripButtonIncluir.RightToLeftAutoMirrorImage = true;
             this.toolStripButtonIncluir.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonIncluir.Text = "Incluir";
+            this.toolStripButtonIncluir.Click += new System.EventHandler(this.toolStripButtonIncluir_Click);
             // 
             // toolStripButtonEditar
             // 
@@ -103,6 +105,7 @@
             this.toolStripButtonEditar.Name = "toolStripButtonEditar";
             this.toolStripButtonEditar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonEditar.Text = "Editar";
+            this.toolStripButtonEditar.Click += new System.EventHandler(this.toolStripButtonEditar_Click);
             // 
             // toolStripButtonExcluir
             // 
@@ -113,24 +116,25 @@
             this.toolStripButtonExcluir.RightToLeftAutoMirrorImage = true;
             this.toolStripButtonExcluir.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonExcluir.Text = "Excluir";
+            this.toolStripButtonExcluir.Click += new System.EventHandler(this.toolStripButtonExcluir_Click);
             // 
             // dgSoftware
             // 
             this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSoftware.Location = new System.Drawing.Point(0, 0);
+            this.dgSoftware.Location = new System.Drawing.Point(0, 29);
             this.dgSoftware.MultiSelect = false;
             this.dgSoftware.Name = "dgSoftware";
             this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSoftware.Size = new System.Drawing.Size(1079, 613);
+            this.dgSoftware.Size = new System.Drawing.Size(1079, 584);
             this.dgSoftware.TabIndex = 9;
             // 
             // FormSoftware
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1079, 613);
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgSoftware);
+            this.Controls.Add(this.toolStrip1);
             this.Name = "FormSoftware";
             this.Text = "Softwares";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

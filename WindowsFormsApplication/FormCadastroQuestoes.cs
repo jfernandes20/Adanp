@@ -52,9 +52,14 @@ namespace WindowsFormsApplication
             {
                 this.timer1.Stop();
                 MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.cbCaracteristica.SelectedIndex = 0;
-                this.cbCaracteristica.Focus();
-                this.timer1.Start();
+                if (quest.Id == 0)
+                {
+                    this.cbCaracteristica.SelectedIndex = 0;
+                    this.cbCaracteristica.Focus();
+                    this.timer1.Start();
+                }
+                else
+                    this.Close();
             }
         }
 
@@ -111,38 +116,37 @@ namespace WindowsFormsApplication
         {
             try
             {
-                quest.SubCaracteristicaId = new SubCaracteristica() { Id = Convert.ToInt32(this.cbSubCararcteristica.SelectedValue), CaracteristicaId = new Caracteristica(), SubCaracteristicaNome = this.cbSubCararcteristica.SelectedText.ToString() };
-                quest.TextoQuestao = this.txtQuestao.Text.Replace('\n', ' ').Trim();
-                if (this.validarQuestoes())
+                if (this.validarCampos())
                 {
+                    quest.SubCaracteristicaId = new SubCaracteristica() { Id = Convert.ToInt32(this.cbSubCararcteristica.SelectedValue), CaracteristicaId = new Caracteristica(), SubCaracteristicaNome = this.cbSubCararcteristica.SelectedText.ToString() };
+                    quest.TextoQuestao = this.txtQuestao.Text.Replace('\n', ' ').Trim();
                     quest.Salvar();
                     MessageBox.Show("Questão de avaliação salva com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
-                    MessageBox.Show("Preencha todos os campos obrigatórios!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Campos obrigatórios não informados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Ocorreu um  erro ao tentar realizar salvar questão.\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um problema. Inclusão não realizada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-        private bool validarQuestoes()
+        private bool validarCampos()
         {
             int camposEmBranco = 0;
 
-            if (cbCaracteristica.SelectedIndex == 0)
+            if (this.cbCaracteristica.SelectedIndex == 0)
             {
                 this.lbErroCaracteristica.Visible = true;
                 camposEmBranco++;
             }
-            if (cbSubCararcteristica.SelectedIndex == 0 && cbSubCararcteristica.Visible == true)
+            if (this.cbSubCararcteristica.SelectedIndex == 0 && cbSubCararcteristica.Visible == true)
             {
                 this.lbErroSubCaracteristica.Visible = true;
                 camposEmBranco++;
             }
-            if (string.IsNullOrWhiteSpace(txtQuestao.Text) && txtQuestao.Visible == true)
+            if (string.IsNullOrWhiteSpace(this.txtQuestao.Text) && this.txtQuestao.Visible == true)
             {
                 this.lbErroQuestao.Visible = true;
                 camposEmBranco++;

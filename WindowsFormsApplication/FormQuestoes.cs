@@ -108,15 +108,18 @@ namespace WindowsFormsApplication
             try
             {
                 Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
-                DialogResult result = MessageBox.Show("Realmente deseja excluir essa questão de avaliaçaão?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Realmente deseja excluir essa questão de avaliação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
+                {
                     questaoSelecionada.Excluir();
+                    MessageBox.Show("Questão de avaliação excluida com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.CarregaDados();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocorreu um erro ao tentar excluir questão de avaliação.\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
     }
 }

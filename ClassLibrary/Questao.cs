@@ -86,8 +86,9 @@ namespace ClassLibrary
             }
 
         }
-        public void Excluir()
+        public bool Excluir()
         {
+            //FALTA VALIDAR SER A QUESTÃO JÁ TEVE AVALIAÇÃO
             try
             {
                 using (SQLiteConnection connection = AppSetting.retornaConexao())
@@ -99,6 +100,7 @@ namespace ClassLibrary
                     command.CommandType = CommandType.Text;
                     command.ExecuteNonQuery();
                     connection.Close();
+                    return true;
                 }
             }
             catch (Exception ex)

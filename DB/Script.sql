@@ -73,6 +73,26 @@ CREATE TABLE Software
     DataInsercao            DATETIME
 );
 
+CREATE TABLE Avaliacao
+(
+    Id                     INTEGER PRIMARY KEY AUTOINCREMENT,
+    SoftwareId             INTEGER,
+    DataAvaliacao          DATETIME,
+    NomePessoa             VARCHAR(100),
+    
+    CONSTRAINT FK_Avaliacao_Software FOREIGN KEY (SoftwareId) REFERENCES Software (Id)
+);
+
+CREATE TABLE NotaAvaliacao
+(
+    Id                     INTEGER PRIMARY KEY AUTOINCREMENT,
+    AvaliacaoId            INTEGER,
+    QuestaoId              INTEGER,
+    Nota                   INTEGER,
+    
+    CONSTRAINT FK_NotaAvaliacao_Avaliacao FOREIGN KEY (AvaliacaoId) REFERENCES Avaliacao (Id),
+    CONSTRAINT FK_NotaAvaliacao_Questao FOREIGN KEY (QuestaoId) REFERENCES Questao (Id)
+);
 
 --Resetar autoIncrement
 --delete from sqlite_sequence where name='Questoes';

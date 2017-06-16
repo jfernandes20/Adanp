@@ -103,7 +103,7 @@ namespace WindowsFormsApplication
                     {
                         if (form.ShowDialog() == DialogResult.OK)
                         {
-                            avaliacao.NomePessoa = form.NomeAvaliador;
+                            avaliacao.NomeAvaliador = form.NomeAvaliador;
                             avaliacao.Salvar();
                         }
                     }

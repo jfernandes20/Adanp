@@ -24,6 +24,7 @@ namespace WindowsFormsApplication
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

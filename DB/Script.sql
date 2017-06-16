@@ -55,7 +55,7 @@ INSERT INTO SubCaracteristica (CaracteristicaId, SubCaracteristicaNome) VALUES
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Conformidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para Substituir');
 
-CREATE TABLE Questoes
+CREATE TABLE Questao
 (
     Id                      INTEGER PRIMARY KEY AUTOINCREMENT,
     SubCaracteristicaId     INTEGER,
@@ -78,7 +78,7 @@ CREATE TABLE Avaliacao
     Id                     INTEGER PRIMARY KEY AUTOINCREMENT,
     SoftwareId             INTEGER,
     DataAvaliacao          DATETIME,
-    NomePessoa             VARCHAR(100),
+    NomeAvaliador             VARCHAR(100),
     
     CONSTRAINT FK_Avaliacao_Software FOREIGN KEY (SoftwareId) REFERENCES Software (Id)
 );
@@ -95,4 +95,4 @@ CREATE TABLE NotaAvaliacao
 );
 
 --Resetar autoIncrement
---delete from sqlite_sequence where name='Questoes';
+--delete from sqlite_sequence where name='Avaliacao';

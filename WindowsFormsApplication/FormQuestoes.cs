@@ -108,7 +108,7 @@ namespace WindowsFormsApplication
             try
             {
                 Questao questaoSelecionada = listaQuestoes.Where(d => d.Id == Convert.ToInt32(this.dgQuestoes.CurrentRow.Cells["Id"].Value)).First();
-                DialogResult result = MessageBox.Show("Realmente deseja excluir essa questão de avaliação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Deseja excluir definitivamente essa questão de avaliação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     questaoSelecionada.Excluir();

@@ -82,6 +82,7 @@ namespace WindowsFormsApplication
                 this.cbSubCararcteristica.Visible = false;
                 this.cbSubCararcteristica.DataSource = null;
                 this.lbSubCategoria.Visible = false;
+                this.txtQuestao.Text = string.Empty;
             }
 
         }

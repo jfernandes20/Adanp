@@ -24,6 +24,9 @@ namespace WindowsFormsApplication
             this.dgSoftware.Columns["CodigoIdentificacao"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
+            this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Inserção";
+
             if (this.dgSoftware.Rows.Count == 0)
             {
                 toolStripButtonEditar.Enabled = false;
@@ -57,7 +60,7 @@ namespace WindowsFormsApplication
                 if (result == DialogResult.Yes)
                 {
                     software.Excluir();
-                    MessageBox.Show("Software excluido com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Software excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.CarregaDados();
                 }
             }

@@ -112,7 +112,7 @@ namespace WindowsFormsApplication
                 if (result == DialogResult.Yes)
                 {
                     questaoSelecionada.Excluir();
-                    MessageBox.Show("Questão de avaliação excluida com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Questão de avaliação excluída com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.CarregaDados();
                 }
             }

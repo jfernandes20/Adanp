@@ -12,8 +12,9 @@ namespace ClassLibrary
         public Int32 Id { get; set; }
         public SubCaracteristica SubCaracteristicaId { get; set; }
         public String TextoQuestao { get; set; }
+        public Int32 NumeroQuestao { get; set; }
 
-        public static List<Questao> ListarQuestao(string filtro, int? caracteristicaId, int? subCaracteristicaId)
+        public static List<Questao> ListarQuestao(string filtro, int caracteristicaId, int subCaracteristicaId)
         {
             DataTable tabelaRetorno = new DataTable();
             using (SQLiteConnection connection = AppSetting.retornaConexao())
@@ -27,13 +28,14 @@ namespace ClassLibrary
                 da.Fill(tabelaRetorno);
                 connection.Close();
             }
-
+            int numeroQuestao = 0;
             List<Questao> listaResultado = new List<Questao>();
             foreach (DataRow linha in tabelaRetorno.AsEnumerable())
             {
                 Questao quest = new Questao();
                 quest.Id = Convert.ToInt32(linha["QuestaoId"]);
                 quest.TextoQuestao = linha["TextoQuestao"].ToString();
+                quest.NumeroQuestao = numeroQuestao++;
                 quest.SubCaracteristicaId = new SubCaracteristica()
                 {
                     Id = Convert.ToInt32(linha["SubCaracteristicaId"]),

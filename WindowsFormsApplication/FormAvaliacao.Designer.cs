@@ -42,11 +42,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LbQuestao = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.LbNumeroQuestao = new System.Windows.Forms.Label();
             this.lbSoftware = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.btnProxima.Location = new System.Drawing.Point(585, 275);
             this.btnProxima.Name = "btnProxima";
             this.btnProxima.Size = new System.Drawing.Size(75, 23);
-            this.btnProxima.TabIndex = 0;
+            this.btnProxima.TabIndex = 2;
             this.btnProxima.Text = "Proxíma";
             this.btnProxima.UseVisualStyleBackColor = true;
             this.btnProxima.Click += new System.EventHandler(this.button2_Click);
@@ -66,9 +66,10 @@
             this.btnAnterior.Location = new System.Drawing.Point(21, 275);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(75, 23);
-            this.btnAnterior.TabIndex = 0;
+            this.btnAnterior.TabIndex = 1;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // groupBox1
             // 
@@ -78,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.LbQuestao);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.LbNumeroQuestao);
             this.groupBox1.Controls.Add(this.lbSoftware);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label7);
@@ -101,7 +102,7 @@
             this.groupBox2.Location = new System.Drawing.Point(21, 202);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(639, 60);
-            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nota de Avaliação";
             // 
@@ -166,9 +167,8 @@
             this.lbSubCaracteristica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSubCaracteristica.Location = new System.Drawing.Point(536, 53);
             this.lbSubCaracteristica.Name = "lbSubCaracteristica";
-            this.lbSubCaracteristica.Size = new System.Drawing.Size(69, 15);
+            this.lbSubCaracteristica.Size = new System.Drawing.Size(0, 15);
             this.lbSubCaracteristica.TabIndex = 2;
-            this.lbSubCaracteristica.Text = "Adequação";
             // 
             // lbCaracteristica
             // 
@@ -176,9 +176,8 @@
             this.lbCaracteristica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCaracteristica.Location = new System.Drawing.Point(123, 53);
             this.lbCaracteristica.Name = "lbCaracteristica";
-            this.lbCaracteristica.Size = new System.Drawing.Size(92, 15);
+            this.lbCaracteristica.Size = new System.Drawing.Size(0, 15);
             this.lbCaracteristica.TabIndex = 2;
-            this.lbCaracteristica.Text = "Funcionalidade";
             // 
             // label5
             // 
@@ -206,19 +205,17 @@
             this.LbQuestao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbQuestao.Location = new System.Drawing.Point(18, 149);
             this.LbQuestao.Name = "LbQuestao";
-            this.LbQuestao.Size = new System.Drawing.Size(333, 15);
-            this.LbQuestao.TabIndex = 1;
-            this.LbQuestao.Text = "O Produto gera resultados precisos ou dentro do esperado?";
+            this.LbQuestao.Size = new System.Drawing.Size(0, 15);
+            this.LbQuestao.TabIndex = 0;
             // 
-            // label8
+            // LbNumeroQuestao
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(212, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 15);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "01";
+            this.LbNumeroQuestao.AutoSize = true;
+            this.LbNumeroQuestao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbNumeroQuestao.Location = new System.Drawing.Point(127, 86);
+            this.LbNumeroQuestao.Name = "LbNumeroQuestao";
+            this.LbNumeroQuestao.Size = new System.Drawing.Size(0, 15);
+            this.LbNumeroQuestao.TabIndex = 1;
             // 
             // lbSoftware
             // 
@@ -226,9 +223,8 @@
             this.lbSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSoftware.Location = new System.Drawing.Point(341, 16);
             this.lbSoftware.Name = "lbSoftware";
-            this.lbSoftware.Size = new System.Drawing.Size(42, 15);
+            this.lbSoftware.Size = new System.Drawing.Size(0, 15);
             this.lbSoftware.TabIndex = 1;
-            this.lbSoftware.Text = "Adanp";
             // 
             // label9
             // 
@@ -240,16 +236,6 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Questão:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 88);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 15);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Nº da Questão de Avaliação:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -259,6 +245,16 @@
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Software:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(18, 86);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 15);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Nº da Questão:";
             // 
             // FormAvaliacao
             // 
@@ -288,9 +284,8 @@
         private System.Windows.Forms.Label lbCaracteristica;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LbNumeroQuestao;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label LbQuestao;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton5;
@@ -298,5 +293,6 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label7;
     }
 }

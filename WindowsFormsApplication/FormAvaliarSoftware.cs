@@ -47,7 +47,9 @@ namespace WindowsFormsApplication
 
         private void toolStripButtonAvaliarSoftware_Click(object sender, EventArgs e)
         {
-            FormAvaliacao form = new FormAvaliacao();
+            Software softwareAtual = new Software();
+            softwareAtual = listaSoftware.Where(d => d.Id == Convert.ToInt32(this.dgSoftware.CurrentRow.Cells["CodigoIdentificacao"].Value)).First();
+            FormAvaliacao form = new FormAvaliacao(softwareAtual);
             form.ShowDialog();
         }
     }

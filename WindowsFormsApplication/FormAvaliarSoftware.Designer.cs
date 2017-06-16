@@ -33,8 +33,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAvaliarSoftware = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -80,11 +80,6 @@
             this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
             this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
-            // 
             // toolStripButtonFiltrar
             // 
             this.toolStripButtonFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFiltrar.Image")));
@@ -94,9 +89,15 @@
             this.toolStripButtonFiltrar.ToolTipText = "Filtrar";
             this.toolStripButtonFiltrar.Click += new System.EventHandler(this.toolStripButtonFiltrar_Click_1);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 29);
+            // 
             // toolStripButtonAvaliarSoftware
             // 
             this.toolStripButtonAvaliarSoftware.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAvaliarSoftware.Enabled = false;
             this.toolStripButtonAvaliarSoftware.Image = global::WindowsFormsApplication.Properties.Resources.icone5_gd;
             this.toolStripButtonAvaliarSoftware.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAvaliarSoftware.Name = "toolStripButtonAvaliarSoftware";

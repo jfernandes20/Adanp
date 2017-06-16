@@ -16,7 +16,6 @@ namespace WindowsFormsApplication
         Questao questaoAtual = new Questao();
         Software softwareAvaliado = new Software();
         Avaliacao avaliacao = new Avaliacao();
-        List<NotaAvaliacao> notas = new List<NotaAvaliacao>();
 
         int NumeroAtual = 0;
         public FormAvaliacao(Software soft)
@@ -30,6 +29,7 @@ namespace WindowsFormsApplication
             this.AtualizaTela();
             this.lbSoftware.Text = softwareAvaliado.NomeSoftware.ToString();
             this.avaliacao.SoftwareId = softwareAvaliado;
+            this.PreencheListaNotas();
         }
         private void CarregaQuestao()
         {
@@ -39,23 +39,6 @@ namespace WindowsFormsApplication
         {
             try
             {
-                NotaAvaliacao nota = new NotaAvaliacao();
-                if (radioButton1.Checked)
-                    nota.Nota = 1;
-                else if (radioButton2.Checked)
-                    nota.Nota = 2;
-                else if (radioButton3.Checked)
-                    nota.Nota = 3;
-                else if (radioButton4.Checked)
-                    nota.Nota = 4;
-                else if (radioButton5.Checked)
-                    nota.Nota = 5;
-                else
-                {
-                    MessageBox.Show("Nenhuma Nota selecionada");
-                }
-
-
                 this.questaoAtual = listaQuestoes.Where(d => d.NumeroQuestao == NumeroAtual).First();
                 this.lbCaracteristica.Text = questaoAtual.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome.ToString();
                 this.lbSubCaracteristica.Text = questaoAtual.SubCaracteristicaId.SubCaracteristicaNome.ToString();
@@ -63,10 +46,15 @@ namespace WindowsFormsApplication
                 this.LbQuestao.Text = questaoAtual.TextoQuestao.ToString();
 
                 if (NumeroAtual + 1 == listaQuestoes.Count())
+                {
                     btnProxima.Enabled = false;
+                    btnSalvar.Enabled = true;
+                }
                 else
+                {
                     btnProxima.Enabled = true;
-
+                    btnSalvar.Enabled = false;
+                }
                 if (NumeroAtual == 0)
                     btnAnterior.Enabled = false;
                 else
@@ -77,15 +65,55 @@ namespace WindowsFormsApplication
                 MessageBox.Show("Ocorreu um erro ao tentar alterar a questão de avaliação");
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void PreencheListaNotas()
         {
+            avaliacao.Notas = new List<NotaAvaliacao>();
+            foreach (Questao q in listaQuestoes.AsEnumerable())
+            {
+                NotaAvaliacao nota = new NotaAvaliacao();
+                nota.QuestaoId = q;
+                avaliacao.Notas.Add(nota);
+            }
+        }
+        private void btnProxima_Click(object sender, EventArgs e)
+        {
+            this.SalvarNotas();
             this.NumeroAtual++;
             this.AtualizaTela();
+
         }
         private void btnAnterior_Click(object sender, EventArgs e)
         {
+            this.SalvarNotas();
             this.NumeroAtual--;
             this.AtualizaTela();
+
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            this.SalvarNotas();
+            avaliacao.Salvar();
+        }
+        private void SalvarNotas()
+        {
+            int nota;
+            if (radioButton1.Checked)
+                nota = 1;
+            else if (radioButton2.Checked)
+                nota = 2;
+            else if (radioButton3.Checked)
+                nota = 3;
+            else if (radioButton4.Checked)
+                nota = 4;
+            else if (radioButton5.Checked)
+                nota = 5;
+            else
+            {
+                MessageBox.Show("Nenhuma Nota selecionada");
+                return;
+            }
+            avaliacao.Notas.Where(n => n.QuestaoId.Id == questaoAtual.Id).ToList().ForEach(n => n.Nota = nota);
         }
     }
 }

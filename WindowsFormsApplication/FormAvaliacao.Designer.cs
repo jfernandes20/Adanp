@@ -47,6 +47,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             this.btnProxima.TabIndex = 2;
             this.btnProxima.Text = "Proxíma";
             this.btnProxima.UseVisualStyleBackColor = true;
-            this.btnProxima.Click += new System.EventHandler(this.button2_Click);
+            this.btnProxima.Click += new System.EventHandler(this.btnProxima_Click);
             // 
             // btnAnterior
             // 
@@ -256,11 +257,23 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Nº da Questão:";
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Enabled = false;
+            this.btnSalvar.Location = new System.Drawing.Point(597, 331);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // FormAvaliacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(706, 337);
+            this.ClientSize = new System.Drawing.Size(706, 368);
+            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormAvaliacao";
             this.Text = "Avaliação";
@@ -294,5 +307,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

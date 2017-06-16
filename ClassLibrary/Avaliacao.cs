@@ -12,6 +12,11 @@ namespace ClassLibrary
         public Software SoftwareId { get; set; }
         public DateTime DataAvaliacao { get; set; }
         public string NomePessoa { get; set; }
-        public List<NotaAvaliacao> NotasAvaliacao { get; set; }
+        public List<NotaAvaliacao> Notas { get; set; }
+
+        public void Salvar()
+        {
+
+        }
     }
 }

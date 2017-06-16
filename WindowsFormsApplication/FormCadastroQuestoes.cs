@@ -122,7 +122,13 @@ namespace WindowsFormsApplication
                     quest.TextoQuestao = this.txtQuestao.Text.Replace('\n', ' ').Trim();
                     quest.Salvar();
                     MessageBox.Show("Questão de avaliação salva com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (quest.Id == 0)
+                    {
+                        this.cbCaracteristica.SelectedIndex = 0;
+                        this.cbCaracteristica.Focus();
+                    }
+                    else
+                        this.Close();
                 }
                 else
                     MessageBox.Show("Campos obrigatórios não informados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);

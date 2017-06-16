@@ -77,25 +77,45 @@ namespace WindowsFormsApplication
         }
         private void btnProxima_Click(object sender, EventArgs e)
         {
-            this.SalvarNotas();
-            this.NumeroAtual++;
-            this.AtualizaTela();
+            if (this.SalvarNotas())
+            {
+                this.NumeroAtual++;
+                this.AtualizaTela();
+            }
 
         }
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            this.SalvarNotas();
-            this.NumeroAtual--;
-            this.AtualizaTela();
-
+            if (this.SalvarNotas())
+            {
+                this.NumeroAtual--;
+                this.AtualizaTela();
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            this.SalvarNotas();
-            avaliacao.Salvar();
+            try
+            {
+                if (this.SalvarNotas())
+                {
+                    using (FormObterNomeAvaliador form = new FormObterNomeAvaliador())
+                    {
+                        if (form.ShowDialog() == DialogResult.OK)
+                        {
+                            avaliacao.NomePessoa = form.NomeAvaliador;
+                            avaliacao.Salvar();
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao salvar notas","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
         }
-        private void SalvarNotas()
+        private bool SalvarNotas()
         {
             int nota;
             if (radioButton1.Checked)
@@ -111,9 +131,10 @@ namespace WindowsFormsApplication
             else
             {
                 MessageBox.Show("Nenhuma Nota selecionada");
-                return;
+                return false;
             }
             avaliacao.Notas.Where(n => n.QuestaoId.Id == questaoAtual.Id).ToList().ForEach(n => n.Nota = nota);
+            return true;
         }
     }
 }

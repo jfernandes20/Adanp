@@ -44,7 +44,10 @@ namespace WindowsFormsApplication
                     this.softwareAtual.FornecedorSoftware = this.txtFornecedor.Text.Trim();
                     this.softwareAtual.Salvar();
                     MessageBox.Show("Software salvo com sucesso!", "Salvar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (this.softwareAtual.Id == 0)
+                        this.LimparCampos();
+                    else
+                        this.Close();
                 }
                 else
                     MessageBox.Show("Campos obrigatórios não informados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);

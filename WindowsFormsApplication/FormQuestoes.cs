@@ -35,10 +35,10 @@ namespace WindowsFormsApplication
             int subCaracteristicaId = this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue != null ? (int)this.toolStripComboBoxSubCaracteristica.ComboBox.SelectedValue : 0;
             this.listaQuestoes = Questao.ListarQuestao(this.toolStripTextBoxCriterio.Text, caracteristicaId, subCaracteristicaId);
             this.dgQuestoes.DataSource = listaQuestoes.Select(d => new { d.Id, Caracteristica = d.SubCaracteristicaId.CaracteristicaId.CaracteristicaNome, SubCaracteristica = d.SubCaracteristicaId.SubCaracteristicaNome, Questão = d.TextoQuestao }).OrderBy(d => d.Id).AsEnumerable().ToList();
-            this.dgQuestoes.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgQuestoes.Columns["Caracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgQuestoes.Columns["SubCaracteristica"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgQuestoes.Columns["Questão"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.dgQuestoes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgQuestoes.Columns["Caracteristica"].HeaderText = "Característica";
+            this.dgQuestoes.Columns["SubCaracteristica"].HeaderText = "Sub Característica";
+
             if (this.dgQuestoes.Rows.Count == 0)
             {
                 toolStripButtonEditar.Enabled = false;

@@ -145,5 +145,16 @@ namespace WindowsFormsApplication
             });
 
         }
+
+        private void FormPesoCaracteristica_Resize(object sender, EventArgs e)
+        {
+            gbCaracteristica.Width = this.Width - 30;
+            dgCaracteristica.Width = gbCaracteristica.Width - 10;
+            gbSoftware.Width = this.Width - 30;
+            dgSoftware.Width = gbSoftware.Width - 10;
+            gbSoftware.Top = gbCaracteristica.Height + 15;
+            gbSoftware.Height = this.Height - (gbCaracteristica.Height + this.WindowState == FormWindowState.Maximized ? 100 : 100);
+
+        }
     }
 }

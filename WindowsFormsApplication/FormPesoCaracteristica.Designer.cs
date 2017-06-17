@@ -42,20 +42,18 @@
             this.DgPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCaracteristica = new System.Windows.Forms.GroupBox();
             this.gbSoftware = new System.Windows.Forms.GroupBox();
-            this.dgSoftware = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonComparar = new System.Windows.Forms.ToolStripButton();
+            this.dgSoftware = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgCaracteristica)).BeginInit();
             this.gbCaracteristica.SuspendLayout();
             this.gbSoftware.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewImageColumn1
@@ -67,7 +65,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(375, 53);
+            this.btnSalvar.Location = new System.Drawing.Point(388, 38);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 4;
@@ -77,7 +75,7 @@
             // 
             // txtPeso
             // 
-            this.txtPeso.Location = new System.Drawing.Point(230, 56);
+            this.txtPeso.Location = new System.Drawing.Point(249, 40);
             this.txtPeso.MaxLength = 1;
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(100, 20);
@@ -87,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 40);
+            this.label2.Location = new System.Drawing.Point(246, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(31, 13);
             this.label2.TabIndex = 2;
@@ -96,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 2;
@@ -106,7 +104,7 @@
             // 
             this.cbCaracteristica.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCaracteristica.FormattingEnabled = true;
-            this.cbCaracteristica.Location = new System.Drawing.Point(12, 55);
+            this.cbCaracteristica.Location = new System.Drawing.Point(15, 39);
             this.cbCaracteristica.Name = "cbCaracteristica";
             this.cbCaracteristica.Size = new System.Drawing.Size(193, 21);
             this.cbCaracteristica.TabIndex = 1;
@@ -121,12 +119,11 @@
             this.Id,
             this.DCaracteristica,
             this.DgPeso});
-            this.dgCaracteristica.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgCaracteristica.Location = new System.Drawing.Point(3, 85);
+            this.dgCaracteristica.Location = new System.Drawing.Point(5, 71);
             this.dgCaracteristica.Name = "dgCaracteristica";
             this.dgCaracteristica.ReadOnly = true;
             this.dgCaracteristica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCaracteristica.Size = new System.Drawing.Size(1032, 186);
+            this.dgCaracteristica.Size = new System.Drawing.Size(1030, 155);
             this.dgCaracteristica.TabIndex = 5;
             this.dgCaracteristica.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgCaracteristica_CellContentClick);
             // 
@@ -170,62 +167,23 @@
             this.gbCaracteristica.Controls.Add(this.btnSalvar);
             this.gbCaracteristica.Controls.Add(this.label2);
             this.gbCaracteristica.Controls.Add(this.txtPeso);
-            this.gbCaracteristica.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbCaracteristica.Location = new System.Drawing.Point(0, 0);
+            this.gbCaracteristica.Location = new System.Drawing.Point(7, 8);
             this.gbCaracteristica.Name = "gbCaracteristica";
-            this.gbCaracteristica.Size = new System.Drawing.Size(1038, 274);
+            this.gbCaracteristica.Size = new System.Drawing.Size(1038, 231);
             this.gbCaracteristica.TabIndex = 7;
             this.gbCaracteristica.TabStop = false;
-            this.gbCaracteristica.Text = "Características";
+            this.gbCaracteristica.Text = "Configuração de características";
             // 
             // gbSoftware
             // 
             this.gbSoftware.Controls.Add(this.dgSoftware);
-            this.gbSoftware.Controls.Add(this.dataGridView1);
             this.gbSoftware.Controls.Add(this.toolStrip1);
-            this.gbSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSoftware.Location = new System.Drawing.Point(0, 274);
+            this.gbSoftware.Location = new System.Drawing.Point(7, 246);
             this.gbSoftware.Name = "gbSoftware";
             this.gbSoftware.Size = new System.Drawing.Size(1038, 419);
             this.gbSoftware.TabIndex = 7;
             this.gbSoftware.TabStop = false;
-            this.gbSoftware.Text = "Software";
-            // 
-            // dgSoftware
-            // 
-            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSoftware.Location = new System.Drawing.Point(3, 45);
-            this.dgSoftware.MultiSelect = false;
-            this.dgSoftware.Name = "dgSoftware";
-            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSoftware.Size = new System.Drawing.Size(1032, 371);
-            this.dgSoftware.TabIndex = 13;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 45);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1032, 371);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(60, 26);
-            this.toolStripLabel1.Text = "Pesquisar:";
-            // 
-            // toolStripTextBoxCriterio
-            // 
-            this.toolStripTextBoxCriterio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxCriterio.MaxLength = 200;
-            this.toolStripTextBoxCriterio.Name = "toolStripTextBoxCriterio";
-            this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
-            this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
+            this.gbSoftware.Text = "Softwares avaliados";
             // 
             // toolStrip1
             // 
@@ -241,6 +199,20 @@
             this.toolStrip1.Size = new System.Drawing.Size(1032, 29);
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(60, 26);
+            this.toolStripLabel1.Text = "Pesquisar:";
+            // 
+            // toolStripTextBoxCriterio
+            // 
+            this.toolStripTextBoxCriterio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxCriterio.MaxLength = 200;
+            this.toolStripTextBoxCriterio.Name = "toolStripTextBoxCriterio";
+            this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
+            this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
             // 
             // toolStripButtonFiltrar
             // 
@@ -265,25 +237,36 @@
             this.toolStripButtonComparar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonComparar.Text = "Comparar";
             // 
+            // dgSoftware
+            // 
+            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSoftware.Location = new System.Drawing.Point(3, 45);
+            this.dgSoftware.MultiSelect = false;
+            this.dgSoftware.Name = "dgSoftware";
+            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSoftware.Size = new System.Drawing.Size(1032, 371);
+            this.dgSoftware.TabIndex = 13;
+            // 
             // FormPesoCaracteristica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1038, 693);
+            this.ClientSize = new System.Drawing.Size(1054, 693);
             this.Controls.Add(this.gbSoftware);
             this.Controls.Add(this.gbCaracteristica);
             this.Name = "FormPesoCaracteristica";
-            this.Text = "Peso Característica";
+            this.Text = "Comparação de Softwares";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPesoCaracteristica_FormClosing);
             this.Load += new System.EventHandler(this.FormPesoCaracteristica_Load);
+            this.Resize += new System.EventHandler(this.FormPesoCaracteristica_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgCaracteristica)).EndInit();
             this.gbCaracteristica.ResumeLayout(false);
             this.gbCaracteristica.PerformLayout();
             this.gbSoftware.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,17 +281,16 @@
         private System.Windows.Forms.DataGridView dgCaracteristica;
         private System.Windows.Forms.GroupBox gbCaracteristica;
         private System.Windows.Forms.GroupBox gbSoftware;
-        private System.Windows.Forms.DataGridView dgSoftware;
         private System.Windows.Forms.DataGridViewImageColumn RemoverCaracteristica;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DCaracteristica;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgPeso;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCriterio;
         private System.Windows.Forms.ToolStripButton toolStripButtonFiltrar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonComparar;
+        private System.Windows.Forms.DataGridView dgSoftware;
     }
 }

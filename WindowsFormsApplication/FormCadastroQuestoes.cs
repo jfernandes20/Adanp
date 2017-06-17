@@ -128,6 +128,7 @@ namespace WindowsFormsApplication
                     {
                         this.cbCaracteristica.SelectedIndex = 0;
                         this.cbCaracteristica.Focus();
+                        this.txtQuestao.Text = string.Empty;
                     }
                     else
                         this.Close();

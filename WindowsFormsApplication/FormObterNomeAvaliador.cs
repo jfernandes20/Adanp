@@ -24,6 +24,11 @@ namespace WindowsFormsApplication
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNomeAvaliador.Text))
+            {
+                MessageBox.Show("O nome do avalidador é obrigatório", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

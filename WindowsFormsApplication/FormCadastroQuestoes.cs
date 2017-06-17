@@ -57,6 +57,7 @@ namespace WindowsFormsApplication
                     this.cbCaracteristica.SelectedIndex = 0;
                     this.cbCaracteristica.Focus();
                     this.timer1.Start();
+                    this.txtQuestao.Text = string.Empty;
                 }
                 else
                     this.Close();

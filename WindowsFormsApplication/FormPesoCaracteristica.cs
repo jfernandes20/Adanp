@@ -153,7 +153,7 @@ namespace WindowsFormsApplication
             gbSoftware.Width = this.Width - 30;
             dgSoftware.Width = gbSoftware.Width - 10;
             gbSoftware.Top = gbCaracteristica.Height + 15;
-            gbSoftware.Height = this.Height - (gbCaracteristica.Height + this.WindowState == FormWindowState.Maximized ? 100 : 100);
+            gbSoftware.Height = this.Height - (gbCaracteristica.Height + 65);
 
         }
     }

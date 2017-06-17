@@ -42,18 +42,18 @@
             this.DgPeso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCaracteristica = new System.Windows.Forms.GroupBox();
             this.gbSoftware = new System.Windows.Forms.GroupBox();
+            this.dgSoftware = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonComparar = new System.Windows.Forms.ToolStripButton();
-            this.dgSoftware = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgCaracteristica)).BeginInit();
             this.gbCaracteristica.SuspendLayout();
             this.gbSoftware.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewImageColumn1
@@ -180,10 +180,21 @@
             this.gbSoftware.Controls.Add(this.toolStrip1);
             this.gbSoftware.Location = new System.Drawing.Point(7, 246);
             this.gbSoftware.Name = "gbSoftware";
-            this.gbSoftware.Size = new System.Drawing.Size(1038, 419);
+            this.gbSoftware.Size = new System.Drawing.Size(1038, 354);
             this.gbSoftware.TabIndex = 7;
             this.gbSoftware.TabStop = false;
             this.gbSoftware.Text = "Softwares avaliados";
+            // 
+            // dgSoftware
+            // 
+            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSoftware.Location = new System.Drawing.Point(3, 45);
+            this.dgSoftware.MultiSelect = false;
+            this.dgSoftware.Name = "dgSoftware";
+            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSoftware.Size = new System.Drawing.Size(1032, 306);
+            this.dgSoftware.TabIndex = 13;
             // 
             // toolStrip1
             // 
@@ -237,21 +248,10 @@
             this.toolStripButtonComparar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonComparar.Text = "Comparar";
             // 
-            // dgSoftware
-            // 
-            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSoftware.Location = new System.Drawing.Point(3, 45);
-            this.dgSoftware.MultiSelect = false;
-            this.dgSoftware.Name = "dgSoftware";
-            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSoftware.Size = new System.Drawing.Size(1032, 371);
-            this.dgSoftware.TabIndex = 13;
-            // 
             // FormPesoCaracteristica
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1054, 693);
+            this.ClientSize = new System.Drawing.Size(1054, 612);
             this.Controls.Add(this.gbSoftware);
             this.Controls.Add(this.gbCaracteristica);
             this.Name = "FormPesoCaracteristica";
@@ -264,9 +264,9 @@
             this.gbCaracteristica.ResumeLayout(false);
             this.gbCaracteristica.PerformLayout();
             this.gbSoftware.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.ResumeLayout(false);
 
         }

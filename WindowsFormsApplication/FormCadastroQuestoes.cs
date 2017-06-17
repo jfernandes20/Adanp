@@ -57,7 +57,7 @@ namespace WindowsFormsApplication
                     this.cbCaracteristica.SelectedIndex = 0;
                     this.cbCaracteristica.Focus();
                     this.timer1.Start();
-                    this.txtQuestao.Text = string.Empty;
+                    quest = new Questao();
                 }
                 else
                     this.Close();
@@ -83,7 +83,7 @@ namespace WindowsFormsApplication
                 this.cbSubCararcteristica.Visible = false;
                 this.cbSubCararcteristica.DataSource = null;
                 this.lbSubCategoria.Visible = false;
-                this.txtQuestao.Text = string.Empty;
+                quest = new Questao();
             }
 
         }
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication
                     {
                         this.cbCaracteristica.SelectedIndex = 0;
                         this.cbCaracteristica.Focus();
-                        this.txtQuestao.Text = string.Empty;
+                        quest = new Questao();
                     }
                     else
                         this.Close();

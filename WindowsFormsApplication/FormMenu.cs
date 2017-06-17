@@ -87,5 +87,12 @@ namespace WindowsFormsApplication
         {
             this.Close();
         }
+
+        private void compararToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPesoCaracteristica form = new FormPesoCaracteristica();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
+        }
     }
 }

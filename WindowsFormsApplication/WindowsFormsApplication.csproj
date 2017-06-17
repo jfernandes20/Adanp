@@ -110,6 +110,12 @@
     <Compile Include="FormObterNomeAvaliador.Designer.cs">
       <DependentUpon>FormObterNomeAvaliador.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPesoCaracteristica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPesoCaracteristica.Designer.cs">
+      <DependentUpon>FormPesoCaracteristica.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormQuestoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormObterNomeAvaliador.resx">
       <DependentUpon>FormObterNomeAvaliador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPesoCaracteristica.resx">
+      <DependentUpon>FormPesoCaracteristica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestoes.resx">
       <DependentUpon>FormQuestoes.cs</DependentUpon>
@@ -207,6 +216,7 @@
   <ItemGroup>
     <None Include="Resources\icone5-gd.png" />
     <None Include="Resources\BackGround.png" />
+    <None Include="Resources\Remover_red.png" />
     <Content Include="Ícone_ES_Trasp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

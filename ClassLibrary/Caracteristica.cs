@@ -14,7 +14,7 @@ namespace ClassLibrary
         public int CaracteristicaNumero { get; set; }
         public string CaracteristicaNome { get; set; }
         public List<SubCaracteristica> SubCaracteristicas { get; set; }
-
+        public int Peso { get; set; }
         public static List<Caracteristica> ListarCaracteristicas()
         {
             DataTable tabelaRetorno = new DataTable();

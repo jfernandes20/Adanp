@@ -27,6 +27,7 @@ namespace WindowsFormsApplication
                 this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
                 this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
+                this.dgSoftware.Columns["DataAvaliacao"].HeaderText = "Data de Avaliação";
 
                 if (this.dgSoftware.Rows.Count == 0)
                 {

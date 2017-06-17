@@ -12,6 +12,7 @@ namespace WindowsFormsApplication
 {
     public partial class FormAvaliacao : FormBase
     {
+        protected override bool ValidaInatividade { get; set; }
         List<Questao> listaQuestoes = new List<Questao>();
         Questao questaoAtual = new Questao();
         Software softwareAvaliado = new Software();
@@ -181,6 +182,11 @@ namespace WindowsFormsApplication
                 this.AtualizaTela();
                 this.timer1.Start();
             }
+        }
+
+        private void FormAvaliacao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.timer1.Dispose();
         }
     }
 }

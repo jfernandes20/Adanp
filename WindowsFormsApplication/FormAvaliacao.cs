@@ -105,6 +105,8 @@ namespace WindowsFormsApplication
                         {
                             avaliacao.NomeAvaliador = form.NomeAvaliador;
                             avaliacao.Salvar();
+                            MessageBox.Show("Avaliação de software finalizada com sucesso!","Confirmação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            this.Close();
                         }
                     }
                 }
@@ -134,7 +136,15 @@ namespace WindowsFormsApplication
                 return false;
             }
             avaliacao.Notas.Where(n => n.QuestaoId.Id == questaoAtual.Id).ToList().ForEach(n => n.Nota = nota);
+            this.LimparNota();
             return true;
+        }
+        private void LimparNota()
+        {
+            foreach (RadioButton rb in groupBox2.Controls.OfType<RadioButton>())
+            {
+                rb.Checked = false;
+            }
         }
     }
 }

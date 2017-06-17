@@ -32,5 +32,10 @@ namespace WindowsFormsApplication
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void FormObterNomeAvaliador_Load(object sender, EventArgs e)
+        {
+            this.txtNomeAvaliador.Focus();
+        }
     }
 }

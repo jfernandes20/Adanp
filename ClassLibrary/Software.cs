@@ -14,6 +14,7 @@ namespace ClassLibrary
         public string TecnologiaSoftware { get; set; }
         public string FornecedorSoftware { get; set; }
         public DateTime DataInsercao { get; set; }
+        public bool PossuiAvaliacao { get; set; }
 
         public static List<Software> ListarSoftware(string nomesoftware)
         {
@@ -23,7 +24,7 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = string.Format("SELECT * FROM Software WHERE NomeSoftware LIKE '%{0}%'", nomesoftware);
+                command.CommandText = string.Format("SELECT S.*, ifnull(A.Id,0) Avaliacao FROM Software S LEFT JOIN Avaliacao A ON A.SoftwareId = S.Id WHERE S.NomeSoftware LIKE '%{0}%'", nomesoftware);
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);
@@ -38,6 +39,7 @@ namespace ClassLibrary
                 soft.TecnologiaSoftware = linha["TecnologiaSoftware"].ToString();
                 soft.FornecedorSoftware = linha["FornecedorSoftware"].ToString();
                 soft.DataInsercao = Convert.ToDateTime(linha["DataInsercao"]);
+                soft.PossuiAvaliacao = Convert.ToInt32(linha["Avaliacao"]) == 0 ? false : true;
                 listaResultado.Add(soft);
             }
             return listaResultado;

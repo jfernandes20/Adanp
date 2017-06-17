@@ -95,4 +95,8 @@ CREATE TABLE NotaAvaliacao
 );
 
 --Resetar autoIncrement
---delete from sqlite_sequence where name='Avaliacao';
+--delete from sqlite_sequence where name='NotaAvaliacao';
+select * from Avaliacao;
+select * from NotaAvaliacao;
+
+SELECT S.*, ifnull(A.Id,0) Avaliacao FROM Software S LEFT JOIN Avaliacao A ON A.SoftwareId = S.Id

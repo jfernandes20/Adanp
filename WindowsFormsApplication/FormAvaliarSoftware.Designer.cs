@@ -50,6 +50,7 @@
             this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgSoftware.Size = new System.Drawing.Size(1079, 584);
             this.dgSoftware.TabIndex = 11;
+            this.dgSoftware.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgSoftware_DataBindingComplete);
             // 
             // toolStrip1
             // 

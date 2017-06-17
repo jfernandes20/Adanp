@@ -69,6 +69,7 @@
             this.Controls.Add(this.btnConfirmar);
             this.Name = "FormObterNomeAvaliador";
             this.Text = "Nome do Avaliador";
+            this.Load += new System.EventHandler(this.FormObterNomeAvaliador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -21,7 +21,8 @@ namespace WindowsFormsApplication
         private void CarregaDados()
         {
             this.listaSoftware = Software.ListarSoftware(this.toolStripTextBoxCriterio.Text);
-            this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.Id, Nome = d.NomeSoftware, Fornecedor = d.FornecedorSoftware, Tecnologia = d.TecnologiaSoftware, DataCadastro = d.DataInsercao.ToString("dd/MM/yyyy") }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
+            this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.Id, Nome = d.NomeSoftware, Fornecedor = d.FornecedorSoftware, Tecnologia = d.TecnologiaSoftware, DataCadastro = d.DataInsercao.ToString("dd/MM/yyyy"),d.PossuiAvaliacao }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
+            this.dgSoftware.Columns["PossuiAvaliacao"].Visible = false;
             this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
             this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
@@ -50,8 +51,21 @@ namespace WindowsFormsApplication
         {
             Software softwareAtual = new Software();
             softwareAtual = listaSoftware.Where(d => d.Id == Convert.ToInt32(this.dgSoftware.CurrentRow.Cells["CodigoIdentificacao"].Value)).First();
+
+            if (Avaliacao.SoftwareJaPossuiAvaliacao(softwareAtual))
+            {
+                MessageBox.Show("Não é possível avaliar este software, pois o mesmo já foi avaliado!","Erro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
             FormAvaliacao form = new FormAvaliacao(softwareAtual);
             form.ShowDialog();
+        }
+
+        private void dgSoftware_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in this.dgSoftware.Rows)
+                row.DefaultCellStyle.BackColor = (Convert.ToBoolean(row.Cells["PossuiAvaliacao"].Value.ToString())) ? Color.FromArgb(46,218,166) : Color.White;
         }
     }
 }

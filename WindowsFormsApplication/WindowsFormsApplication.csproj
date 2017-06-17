@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icone5-gd.png" />
+    <None Include="Resources\BackGround.png" />
     <Content Include="Ícone_ES_Trasp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

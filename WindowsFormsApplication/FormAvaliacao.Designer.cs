@@ -45,8 +45,8 @@
             this.LbNumeroQuestao = new System.Windows.Forms.Label();
             this.lbSoftware = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -166,7 +166,7 @@
             // 
             this.lbSubCaracteristica.AutoSize = true;
             this.lbSubCaracteristica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSubCaracteristica.Location = new System.Drawing.Point(536, 53);
+            this.lbSubCaracteristica.Location = new System.Drawing.Point(491, 53);
             this.lbSubCaracteristica.Name = "lbSubCaracteristica";
             this.lbSubCaracteristica.Size = new System.Drawing.Size(0, 15);
             this.lbSubCaracteristica.TabIndex = 2;
@@ -184,7 +184,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(402, 53);
+            this.label5.Location = new System.Drawing.Point(357, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 15);
             this.label5.TabIndex = 3;
@@ -237,16 +237,6 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Questão:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(268, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Software:";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -256,6 +246,16 @@
             this.label7.Size = new System.Drawing.Size(103, 15);
             this.label7.TabIndex = 1;
             this.label7.Text = "Nº da Questão:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(268, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Software:";
             // 
             // btnSalvar
             // 

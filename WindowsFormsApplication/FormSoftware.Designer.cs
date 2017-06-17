@@ -32,12 +32,12 @@
             this.dgSoftware = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonIncluir = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExcluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,14 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(60, 26);
             this.toolStripLabel1.Text = "Pesquisar:";
+            // 
+            // toolStripTextBoxCriterio
+            // 
+            this.toolStripTextBoxCriterio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxCriterio.MaxLength = 200;
+            this.toolStripTextBoxCriterio.Name = "toolStripTextBoxCriterio";
+            this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
+            this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
             // 
             // toolStripButtonFiltrar
             // 
@@ -122,14 +130,6 @@
             this.toolStripButtonExcluir.Text = "Excluir";
             this.toolStripButtonExcluir.Click += new System.EventHandler(this.toolStripButtonExcluir_Click);
             // 
-            // toolStripTextBoxCriterio
-            // 
-            this.toolStripTextBoxCriterio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxCriterio.MaxLength = 200;
-            this.toolStripTextBoxCriterio.Name = "toolStripTextBoxCriterio";
-            this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
-            this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
-            // 
             // FormSoftware
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -137,7 +137,7 @@
             this.Controls.Add(this.dgSoftware);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormSoftware";
-            this.Text = "Softwares";
+            this.Text = "Cadastro de Software";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.toolStrip1.ResumeLayout(false);

@@ -17,12 +17,6 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
             this.ValidaInatividade = false;
-
-        }
-
-        private void sairToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
         private void ShowUniqueInstance(Form form)
         {
@@ -60,7 +54,7 @@ namespace WindowsFormsApplication
 
         protected override void timer1_Tick(object sender, EventArgs e)
         {
-            this.labelHora.Text = DateTime.Now.ToLongTimeString();
+            this.LbData.Text = string.Concat(DateTime.Now.ToLongDateString(),"  " ,DateTime.Now.ToLongTimeString());
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
@@ -87,6 +81,11 @@ namespace WindowsFormsApplication
             FormAvaliarSoftware form = new FormAvaliarSoftware();
             form.MdiParent = this;
             ShowUniqueInstance(form);
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

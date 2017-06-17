@@ -45,6 +45,32 @@ namespace WindowsFormsApplication
                 this.LbNumeroQuestao.Text = (questaoAtual.NumeroQuestao + 1).ToString("000");
                 this.LbQuestao.Text = questaoAtual.TextoQuestao.ToString();
 
+                if (avaliacao.Notas != null)
+                {
+                    int nota = Convert.ToInt32(this.avaliacao.Notas.Where(d => d.QuestaoId.Id == questaoAtual.Id).Select(d => d.Nota).First().ToString());
+
+                    switch (nota)
+                    {
+                        case 1:
+                            radioButton1.Checked = true;
+                            break;
+                        case 2:
+                            radioButton2.Checked = true;
+                            break;
+                        case 3:
+                            radioButton3.Checked = true;
+                            break;
+                        case 4:
+                            radioButton4.Checked = true;
+                            break;
+                        case 5:
+                            radioButton5.Checked = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
                 if (NumeroAtual + 1 == listaQuestoes.Count())
                 {
                     btnProxima.Enabled = false;
@@ -86,11 +112,8 @@ namespace WindowsFormsApplication
         }
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            if (this.SalvarNotas())
-            {
-                this.NumeroAtual--;
-                this.AtualizaTela();
-            }
+            this.NumeroAtual--;
+            this.AtualizaTela();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -105,7 +128,7 @@ namespace WindowsFormsApplication
                         {
                             avaliacao.NomeAvaliador = form.NomeAvaliador;
                             avaliacao.Salvar();
-                            MessageBox.Show("Avaliação de software finalizada com sucesso!","Confirmação",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            MessageBox.Show("Avaliação de software finalizada com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
                     }
@@ -113,7 +136,7 @@ namespace WindowsFormsApplication
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocorreu um erro ao salvar notas","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um erro ao salvar notas", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

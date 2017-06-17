@@ -32,10 +32,10 @@ INSERT INTO SubCaracteristica (CaracteristicaId, SubCaracteristicaNome) VALUES
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Acurácia'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Interoperabilidade'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Conformidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Segurança de Acesso'),
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 1), 'Segurança de acesso'),
 
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Maturidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Tolerância a Falhas'),
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Tolerância a falhas'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 2), 'Recuperabilidade'),
 
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 3), 'Inteligibilidade'),
@@ -51,9 +51,9 @@ INSERT INTO SubCaracteristica (CaracteristicaId, SubCaracteristicaNome) VALUES
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 5), 'Testabilidade'),
 
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Adaptabilidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para ser Instalado'),
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para ser instalado'),
 ((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Conformidade'),
-((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para Substituir');
+((SELECT Id FROM Caracteristica WHERE CaracteristicaNumero = 6), 'Capacidade para substituir');
 
 CREATE TABLE Questao
 (
@@ -90,13 +90,12 @@ CREATE TABLE NotaAvaliacao
     QuestaoId              INTEGER,
     Nota                   INTEGER,
     
-    CONSTRAINT FK_NotaAvaliacao_Avaliacao FOREIGN KEY (AvaliacaoId) REFERENCES Avaliacao (Id),
+    CONSTRAINT FK_NotaAvaliacao_Avaliacao FOREIGN KEY (AvaliacaoId) REFERENCES Avaliacao (Id) ON DELETE CASCADE,
     CONSTRAINT FK_NotaAvaliacao_Questao FOREIGN KEY (QuestaoId) REFERENCES Questao (Id)
 );
 
 --Resetar autoIncrement
---delete from sqlite_sequence where name='NotaAvaliacao';
-select * from Avaliacao;
-select * from NotaAvaliacao;
+--delete from sqlite_sequence where name='Avaliacao';
+select * from SubCaracteristica;
 
-SELECT S.*, ifnull(A.Id,0) Avaliacao FROM Software S LEFT JOIN Avaliacao A ON A.SoftwareId = S.Id
+UPDATE SubCaracteristica SET SubCaracteristicaNome = 'Capacidade para substituir' WHERE Id = 21

@@ -29,28 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAvaliarSoftware));
-            this.dgSoftware = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonAvaliarSoftware = new System.Windows.Forms.ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
+            this.dgSoftware = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgSoftware
-            // 
-            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSoftware.Location = new System.Drawing.Point(0, 29);
-            this.dgSoftware.MultiSelect = false;
-            this.dgSoftware.Name = "dgSoftware";
-            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSoftware.Size = new System.Drawing.Size(1079, 584);
-            this.dgSoftware.TabIndex = 11;
-            this.dgSoftware.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgSoftware_DataBindingComplete);
             // 
             // toolStrip1
             // 
@@ -107,6 +95,18 @@
             this.toolStripButtonAvaliarSoftware.ToolTipText = "Avaliar Software";
             this.toolStripButtonAvaliarSoftware.Click += new System.EventHandler(this.toolStripButtonAvaliarSoftware_Click);
             // 
+            // dgSoftware
+            // 
+            this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSoftware.Location = new System.Drawing.Point(0, 29);
+            this.dgSoftware.MultiSelect = false;
+            this.dgSoftware.Name = "dgSoftware";
+            this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgSoftware.Size = new System.Drawing.Size(1079, 584);
+            this.dgSoftware.TabIndex = 11;
+            this.dgSoftware.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgSoftware_DataBindingComplete);
+            // 
             // FormAvaliarSoftware
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -114,23 +114,22 @@
             this.Controls.Add(this.dgSoftware);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormAvaliarSoftware";
-            this.Text = "Avaliar Software";
+            this.Text = "Avaliação de Software";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSoftware)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgSoftware;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCriterio;
         private System.Windows.Forms.ToolStripButton toolStripButtonFiltrar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonAvaliarSoftware;
+        private System.Windows.Forms.DataGridView dgSoftware;
     }
 }

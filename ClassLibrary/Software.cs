@@ -14,7 +14,6 @@ namespace ClassLibrary
         public string TecnologiaSoftware { get; set; }
         public string FornecedorSoftware { get; set; }
         public DateTime DataInsercao { get; set; }
-        public bool PossuiAvaliacao { get; set; }
 
         public static List<Software> ListarSoftware(string nomesoftware)
         {
@@ -24,7 +23,7 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = string.Format("SELECT S.*, ifnull(A.Id,0) Avaliacao FROM Software S LEFT JOIN Avaliacao A ON A.SoftwareId = S.Id WHERE S.NomeSoftware LIKE '%{0}%'", nomesoftware);
+                command.CommandText = string.Format("SELECT * FROM Software WHERE NomeSoftware LIKE '%{0}%'", nomesoftware);
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);
@@ -39,11 +38,11 @@ namespace ClassLibrary
                 soft.TecnologiaSoftware = linha["TecnologiaSoftware"].ToString();
                 soft.FornecedorSoftware = linha["FornecedorSoftware"].ToString();
                 soft.DataInsercao = Convert.ToDateTime(linha["DataInsercao"]);
-                soft.PossuiAvaliacao = Convert.ToInt32(linha["Avaliacao"]) == 0 ? false : true;
                 listaResultado.Add(soft);
             }
             return listaResultado;
         }
+
         public void Salvar()
         {
             try
@@ -86,17 +85,25 @@ namespace ClassLibrary
         {
             try
             {
-                //FALTA VALIDAR SER A QUESTÃO JÁ TEVE AVALIAÇÃO
+                bool retorno;
                 using (SQLiteConnection connection = AppSetting.retornaConexao())
                 {
                     connection.Open();
                     SQLiteCommand command = new SQLiteCommand();
                     command.Connection = connection;
-                    command.CommandText = String.Format("DELETE FROM Software where Id = {0}", this.Id);
+                    command.CommandText = String.Format("SELECT EXISTS(SELECT 1 FROM Avaliacao WHERE SoftwareId = {0})", this.Id);
                     command.CommandType = CommandType.Text;
-                    command.ExecuteNonQuery();
+                    bool possuiAvaliacao = Convert.ToBoolean(command.ExecuteScalar());
+                    if (possuiAvaliacao)
+                        retorno = false;
+                    else
+                    {
+                        command.CommandText = String.Format("DELETE FROM Software where Id = {0}", this.Id);
+                        command.ExecuteNonQuery();
+                        retorno = true;
+                    }
                     connection.Close();
-                    return true;
+                    return retorno;
                 }
             }
             catch (Exception ex)

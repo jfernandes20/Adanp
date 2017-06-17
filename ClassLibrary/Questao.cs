@@ -22,7 +22,7 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = string.Format("SELECT * FROM View_Listar_Questoes WHERE TextoQuestao LIKE '%{0}%'  AND ({1} = 0 or SubCaracteristicaId = {1}) AND ({2} = 0 or CaracteristicaId = {2})",filtro,subCaracteristicaId,caracteristicaId);
+                command.CommandText = string.Format("SELECT * FROM View_Listar_Questoes WHERE TextoQuestao LIKE '%{0}%'  AND ({1} = 0 or SubCaracteristicaId = {1}) AND ({2} = 0 or CaracteristicaId = {2})", filtro, subCaracteristicaId, caracteristicaId);
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);
@@ -75,7 +75,7 @@ namespace ClassLibrary
                         connection.Open();
                         SQLiteCommand command = new SQLiteCommand();
                         command.Connection = connection;
-                        command.CommandText = String.Format("UPDATE Questao SET SubCaracteristicaId = {0}, TextoQuestao = '{1}' where Id = {2}", this.SubCaracteristicaId.Id, this.TextoQuestao,this.Id);
+                        command.CommandText = String.Format("UPDATE Questao SET SubCaracteristicaId = {0}, TextoQuestao = '{1}' where Id = {2}", this.SubCaracteristicaId.Id, this.TextoQuestao, this.Id);
                         command.CommandType = CommandType.Text;
                         command.ExecuteNonQuery();
                         connection.Close();
@@ -90,19 +90,27 @@ namespace ClassLibrary
         }
         public bool Excluir()
         {
-            //FALTA VALIDAR SER A QUESTÃO JÁ TEVE AVALIAÇÃO
             try
             {
+                bool retorno;
                 using (SQLiteConnection connection = AppSetting.retornaConexao())
                 {
                     connection.Open();
                     SQLiteCommand command = new SQLiteCommand();
                     command.Connection = connection;
-                    command.CommandText = String.Format("DELETE FROM Questao where Id = {0}", this.Id);
+                    command.CommandText = String.Format("SELECT EXISTS(SELECT 1 FROM NotaAvaliacao WHERE QuestaoId = {0})", this.Id);
                     command.CommandType = CommandType.Text;
-                    command.ExecuteNonQuery();
+                    bool possuiAvaliacao = Convert.ToBoolean(command.ExecuteScalar());
+                    if (possuiAvaliacao)
+                        retorno = false;
+                    else
+                    {
+                        command.CommandText = String.Format("DELETE FROM Questao where Id = {0}", this.Id);
+                        command.ExecuteNonQuery();
+                        retorno = true;
+                    }
                     connection.Close();
-                    return true;
+                    return retorno;
                 }
             }
             catch (Exception ex)

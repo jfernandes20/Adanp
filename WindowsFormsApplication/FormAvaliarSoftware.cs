@@ -16,25 +16,33 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
         }
-        List<Software> listaSoftware = new List<Software>();
+        List<Avaliacao> listaSoftware = new List<Avaliacao>();
 
         private void CarregaDados()
         {
-            this.listaSoftware = Software.ListarSoftware(this.toolStripTextBoxCriterio.Text);
-            this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.Id, Nome = d.NomeSoftware, Fornecedor = d.FornecedorSoftware, Tecnologia = d.TecnologiaSoftware, DataCadastro = d.DataInsercao.ToString("dd/MM/yyyy"),d.PossuiAvaliacao }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
-            this.dgSoftware.Columns["PossuiAvaliacao"].Visible = false;
-            this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
-            this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
+            try
+            {
+                this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text);
+                this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.SoftwareId.Id, Nome = d.SoftwareId.NomeSoftware, Fornecedor = d.SoftwareId.FornecedorSoftware, Tecnologia = d.SoftwareId.TecnologiaSoftware, DataCadastro = d.SoftwareId.DataInsercao.ToString("dd/MM/yyyy"), DataAvaliacao = (d.DataAvaliacao == DateTime.MinValue ? string.Empty : d.DataAvaliacao.ToString("dd/MM/yyyy")), Avaliador = d.NomeAvaliador }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
+                this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
+                this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
 
-            if (this.dgSoftware.Rows.Count == 0)
-            {
-                toolStripButtonAvaliarSoftware.Enabled = false;
+                if (this.dgSoftware.Rows.Count == 0)
+                {
+                    toolStripButtonAvaliarSoftware.Enabled = false;
+                }
+                else
+                {
+                    toolStripButtonAvaliarSoftware.Enabled = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                toolStripButtonAvaliarSoftware.Enabled = true;
+
+                MessageBox.Show("Ocorreu um erro ao carregar a lista de software!\nDetalhes: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void toolStripButtonFiltrar_Click_1(object sender, EventArgs e)
@@ -49,23 +57,23 @@ namespace WindowsFormsApplication
 
         private void toolStripButtonAvaliarSoftware_Click(object sender, EventArgs e)
         {
-            Software softwareAtual = new Software();
-            softwareAtual = listaSoftware.Where(d => d.Id == Convert.ToInt32(this.dgSoftware.CurrentRow.Cells["CodigoIdentificacao"].Value)).First();
+            Avaliacao avaliacaoAtual = new Avaliacao();
+            avaliacaoAtual = listaSoftware.Where(d => d.SoftwareId.Id == Convert.ToInt32(this.dgSoftware.CurrentRow.Cells["CodigoIdentificacao"].Value)).First();
 
-            if (Avaliacao.SoftwareJaPossuiAvaliacao(softwareAtual))
+            if (avaliacaoAtual.Id > 0)
             {
-                MessageBox.Show("Não é possível avaliar este software, pois o mesmo já foi avaliado!","Erro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Não é possível avaliar este software, pois o mesmo já foi avaliado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            FormAvaliacao form = new FormAvaliacao(softwareAtual);
+            FormAvaliacao form = new FormAvaliacao(avaliacaoAtual.SoftwareId);
             form.ShowDialog();
         }
 
         private void dgSoftware_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in this.dgSoftware.Rows)
-                row.DefaultCellStyle.BackColor = (Convert.ToBoolean(row.Cells["PossuiAvaliacao"].Value.ToString())) ? Color.FromArgb(46,218,166) : Color.White;
+                row.DefaultCellStyle.BackColor = (string.IsNullOrWhiteSpace(row.Cells["DataAvaliacao"].Value.ToString())) ? Color.White : Color.FromArgb(46, 218, 166);
         }
     }
 }

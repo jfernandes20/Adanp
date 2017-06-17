@@ -111,9 +111,13 @@ namespace WindowsFormsApplication
                 DialogResult result = MessageBox.Show("Deseja excluir definitivamente essa questão de avaliação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    questaoSelecionada.Excluir();
-                    MessageBox.Show("Questão de avaliação excluída com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.CarregaDados();
+                    if (questaoSelecionada.Excluir())
+                    {
+                        MessageBox.Show("Questão de avaliação excluída com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.CarregaDados();
+                    }
+                    else
+                        MessageBox.Show("Não foi possivel excluir questão de avaliação, pois a mesma já possui avalição!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)

@@ -66,5 +66,66 @@ namespace ClassLibrary
                 throw ex;
             }
         }
+        public static List<Avaliacao> ListarSoftwareAvaliacao(string nomesoftware)
+        {
+            DataSet tabelaRetorno = new DataSet();
+            using (SQLiteConnection connection = AppSetting.retornaConexao())
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = string.Format("SELECT Software.Id SoftwareId,Software.NomeSoftware, Software.TecnologiaSoftware,Software.FornecedorSoftware, Software.DataInsercao, "
+                    + "A.* FROM Software  LEFT JOIN Avaliacao A ON A.SoftwareId = Software.Id WHERE Software.NomeSoftware LIKE '%{0}%';"
+                    + "SELECT * FROM View_Listar_Software_Avaliacao WHERE NomeSoftware LIKE '%{0}%'", nomesoftware);
+                command.CommandType = CommandType.Text;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                da.Fill(tabelaRetorno);
+                connection.Close();
+            }
+            List<Avaliacao> listaResultado = new List<Avaliacao>();
+            foreach (DataRow linha in tabelaRetorno.Tables[0].AsEnumerable())
+            {
+                Avaliacao Av = new Avaliacao();
+                Av.Id = Convert.ToInt32(linha["Id"] == DBNull.Value ? 0 :  linha["Id"]);
+                Av.DataAvaliacao = Convert.ToDateTime(linha["DataAvaliacao"] == DBNull.Value ? DateTime.MinValue : linha["DataAvaliacao"]);
+                Av.NomeAvaliador = linha["NomeAvaliador"].ToString();
+                Av.SoftwareId = new Software()
+                {
+                    Id = Convert.ToInt32(linha["SoftwareId"]),
+                    NomeSoftware = linha["NomeSoftware"].ToString(),
+                    TecnologiaSoftware = linha["TecnologiaSoftware"].ToString(),
+                    FornecedorSoftware = linha["FornecedorSoftware"].ToString(),
+                    DataInsercao = Convert.ToDateTime(linha["DataInsercao"])
+                };
+                Av.Notas = new List<NotaAvaliacao>();
+                foreach (DataRow linhaNota in tabelaRetorno.Tables[1].Select(string.Format("AvaliacaoId = {0}", Av.Id)))
+                {
+                    NotaAvaliacao na = new NotaAvaliacao();
+                    na.Id = Convert.ToInt32(linhaNota["NotaAvaliacaoId"]);
+                    na.AvaliacaoId = Convert.ToInt32(linhaNota["AvaliacaoId"]);
+                    na.Nota = Convert.ToInt32(linhaNota["Nota"]);
+
+                    na.QuestaoId = new Questao()
+                    {
+                        Id = Convert.ToInt32(linhaNota["QuestaoId"]),
+                        TextoQuestao = linhaNota["TextoQuestao"].ToString(),
+                        SubCaracteristicaId = new SubCaracteristica()
+                        {
+                            Id = Convert.ToInt32(linhaNota["SubCaracteristicaId"]),
+                            SubCaracteristicaNome = linhaNota["SubCaracteristicaNome"].ToString(),
+                            CaracteristicaId = new Caracteristica()
+                            {
+                                Id = Convert.ToInt32(linhaNota["CaracteristicaId"]),
+                                CaracteristicaNome = linhaNota["CaracteristicaNome"].ToString(),
+                                CaracteristicaNumero = Convert.ToInt32(linhaNota["CaracteristicaNumero"])
+                            }
+                        }
+                    };
+                    Av.Notas.Add(na);
+                }
+                listaResultado.Add(Av);
+            }
+            return listaResultado;
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace WindowsFormsApplication
             this.lbSoftware.Text = softwareAvaliado.NomeSoftware.ToString();
             this.avaliacao.SoftwareId = softwareAvaliado;
             this.PreencheListaNotas();
+            this.ValidaInatividade = true;
         }
         private void CarregaQuestao()
         {
@@ -73,13 +74,13 @@ namespace WindowsFormsApplication
 
                 if (NumeroAtual + 1 == listaQuestoes.Count())
                 {
-                    btnProxima.Enabled = false;
-                    btnSalvar.Enabled = true;
+                    btnProxima.Visible = false;
+                    btnSalvar.Visible = true;
                 }
                 else
                 {
-                    btnProxima.Enabled = true;
-                    btnSalvar.Enabled = false;
+                    btnProxima.Visible = true;
+                    btnSalvar.Visible = false;
                 }
                 if (NumeroAtual == 0)
                     btnAnterior.Enabled = false;
@@ -167,6 +168,18 @@ namespace WindowsFormsApplication
             foreach (RadioButton rb in groupBox2.Controls.OfType<RadioButton>())
             {
                 rb.Checked = false;
+            }
+        }
+        protected override void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
+            {
+                this.timer1.Stop();
+                MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.NumeroAtual = 0;
+                this.PreencheListaNotas();
+                this.AtualizaTela();
+                this.timer1.Start();
             }
         }
     }

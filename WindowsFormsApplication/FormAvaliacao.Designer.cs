@@ -74,6 +74,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSalvar);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.lbSubCaracteristica);
             this.groupBox1.Controls.Add(this.lbCaracteristica);
@@ -259,13 +260,13 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(597, 331);
+            this.btnSalvar.Location = new System.Drawing.Point(585, 275);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Visible = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // FormAvaliacao
@@ -273,7 +274,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 368);
-            this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormAvaliacao";
             this.Text = "Avaliação";

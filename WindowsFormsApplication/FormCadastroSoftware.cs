@@ -68,6 +68,7 @@ namespace WindowsFormsApplication
                 this.lbErroFornecedor.Visible = false;
                 this.lbErroNome.Visible = false;
                 this.lbErroTecnologia.Visible = false;
+                this.txtNome.Focus();
             }
             else
                 this.Close();

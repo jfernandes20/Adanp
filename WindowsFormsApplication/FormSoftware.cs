@@ -57,9 +57,13 @@ namespace WindowsFormsApplication
                 DialogResult result = MessageBox.Show("Realmente deseja excluir software?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    software.Excluir();
-                    MessageBox.Show("Software excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.CarregaDados();
+                    if (software.Excluir())
+                    {
+                        MessageBox.Show("Software excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.CarregaDados();
+                    }
+                    else
+                        MessageBox.Show("Não foi possível excluir software, pois o mesmo já possui avaliação!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)

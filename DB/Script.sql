@@ -97,5 +97,3 @@ CREATE TABLE NotaAvaliacao
 --Resetar autoIncrement
 --delete from sqlite_sequence where name='Avaliacao';
 select * from SubCaracteristica;
-
-UPDATE SubCaracteristica SET SubCaracteristicaNome = 'Capacidade para substituir' WHERE Id = 21

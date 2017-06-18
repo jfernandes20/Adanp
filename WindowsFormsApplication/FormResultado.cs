@@ -46,14 +46,14 @@ namespace WindowsFormsApplication
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
             foreach (var x in caracteristica.OrderBy(d => d.CaracteristicaNumero).Select(d => new { Caracteristica = d.CaracteristicaNome, Peso = d.Peso }).AsEnumerable())
-                this.dgResultado.Rows.Add(x.Caracteristica,x.Peso);
+                this.dgResultado.Rows.Add(x.Caracteristica, x.Peso);
 
-            for (int i = 0; i <= softwares-1; i++)
+            for (int i = 0; i <= softwares - 1; i++)
             {
                 this.dgResultado.Columns.Add(new DataGridViewTextBoxColumn()
                 {
-                    HeaderText = "Soft"+(i+1),
-                    Name = "Soft"+(i+1),
+                    HeaderText = "Soft" + (i + 1),
+                    Name = "Soft" + (i + 1),
                     Width = 30,
                     ReadOnly = true,
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
@@ -61,20 +61,27 @@ namespace WindowsFormsApplication
                 this.dgResultado.Columns.Add(new DataGridViewTextBoxColumn()
                 {
                     HeaderText = "Total de Pontos",
-                    Name = "TotalPontos"+(i+1),
+                    Name = "TotalPontos" + (i + 1),
                     Width = 30,
                     ReadOnly = true,
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
                 });
             }
             int soft = -1;
-            foreach (int r in this.resultados.AsEnumerable().Select(d => Convert.ToInt32(d["SoftwareId"])).Distinct())
+            foreach (var r in this.resultados.AsEnumerable().Select(d => new { Id = Convert.ToInt32(d["SoftwareId"]), Nome = d["NomeSoftware"].ToString() }).Distinct())
             {
                 soft++;
                 int linha = 0;
-                foreach (DataRow exibicao in this.resultados.AsEnumerable().Where(d => Convert.ToInt32(d["SoftwareId"]) == r))
+
+                Label labels = (Label)groupBox1.Controls.Find("lbSoftware" + (soft + 1), true).First();
+                if (labels != null)
                 {
-                    this.dgResultado.Rows[linha].Cells["Soft" + (soft + 1)].Value = exibicao["NomeSoftware"].ToString();
+                    labels.Text = string.Format("Soft{0} – {1}", (soft + 1).ToString(), r.Nome.ToString());
+                }
+
+                foreach (DataRow exibicao in this.resultados.AsEnumerable().Where(d => Convert.ToInt32(d["SoftwareId"]) == r.Id))
+                {
+                    this.dgResultado.Rows[linha].Cells["Soft" + (soft + 1)].Value = exibicao["NotaTotal"].ToString();//exibicao["NomeSoftware"].ToString();
                     this.dgResultado.Rows[linha].Cells["TotalPontos" + (soft + 1)].Value = Convert.ToInt32(exibicao["NotaTotal"].ToString()) * Convert.ToInt32(this.dgResultado.Rows[linha].Cells["Peso"].Value);
                     linha++;
                 }

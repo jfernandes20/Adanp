@@ -45,8 +45,14 @@ namespace WindowsFormsApplication
                 ReadOnly = true,
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
+            int linGrid = 0;
             foreach (var x in caracteristica.OrderBy(d => d.CaracteristicaNumero).Select(d => new { Caracteristica = d.CaracteristicaNome, Peso = d.Peso }).AsEnumerable())
+            {
                 this.dgResultado.Rows.Add(x.Caracteristica, x.Peso);
+                dgResultado.Rows[linGrid].Cells["Característica"].Style.BackColor = Color.FromArgb(46, 218, 166); ;
+                dgResultado.Rows[linGrid].Cells["Peso"].Style.BackColor = Color.FromArgb(46, 218, 166); ;
+                linGrid++;
+            }
 
             for (int i = 0; i <= softwares - 1; i++)
             {

@@ -94,5 +94,10 @@ namespace WindowsFormsApplication
             form.MdiParent = this;
             ShowUniqueInstance(form);
         }
+
+        private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.timer1.Dispose();
+        }
     }
 }

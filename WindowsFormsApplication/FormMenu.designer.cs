@@ -37,10 +37,10 @@
             this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avaliaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRodape.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -122,16 +122,23 @@
             // cadastroToolStripMenuItem
             // 
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.cadastroToolStripMenuItem.Text = "Cadastro";
             this.cadastroToolStripMenuItem.Click += new System.EventHandler(this.cadastroToolStripMenuItem_Click);
             // 
             // avaliaçãoToolStripMenuItem
             // 
             this.avaliaçãoToolStripMenuItem.Name = "avaliaçãoToolStripMenuItem";
-            this.avaliaçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avaliaçãoToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.avaliaçãoToolStripMenuItem.Text = "Avaliação";
             this.avaliaçãoToolStripMenuItem.Click += new System.EventHandler(this.avaliaçãoToolStripMenuItem_Click);
+            // 
+            // compararToolStripMenuItem
+            // 
+            this.compararToolStripMenuItem.Name = "compararToolStripMenuItem";
+            this.compararToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.compararToolStripMenuItem.Text = "Comparar";
+            this.compararToolStripMenuItem.Click += new System.EventHandler(this.compararToolStripMenuItem_Click);
             // 
             // configuraçãoToolStripMenuItem
             // 
@@ -144,7 +151,7 @@
             // CadastrarToolStripMenuItem
             // 
             this.CadastrarToolStripMenuItem.Name = "CadastrarToolStripMenuItem";
-            this.CadastrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CadastrarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.CadastrarToolStripMenuItem.Text = "Cadastro";
             this.CadastrarToolStripMenuItem.Click += new System.EventHandler(this.CadastrarToolStripMenuItem_Click);
             // 
@@ -154,13 +161,6 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // compararToolStripMenuItem
-            // 
-            this.compararToolStripMenuItem.Name = "compararToolStripMenuItem";
-            this.compararToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.compararToolStripMenuItem.Text = "Comparar";
-            this.compararToolStripMenuItem.Click += new System.EventHandler(this.compararToolStripMenuItem_Click);
             // 
             // FormMenu
             // 
@@ -177,6 +177,7 @@
             this.Name = "FormMenu";
             this.Text = "Adanp";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenu_FormClosing);
             this.Load += new System.EventHandler(this.FormMenu_Load);
             this.panelRodape.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

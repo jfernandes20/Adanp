@@ -49,6 +49,7 @@
             this.txtNomeAvaliador.Name = "txtNomeAvaliador";
             this.txtNomeAvaliador.Size = new System.Drawing.Size(329, 20);
             this.txtNomeAvaliador.TabIndex = 1;
+            this.txtNomeAvaliador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeAvaliador_KeyPress);
             // 
             // label1
             // 

@@ -110,17 +110,23 @@
     <Compile Include="FormObterNomeAvaliador.Designer.cs">
       <DependentUpon>FormObterNomeAvaliador.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPesoCaracteristica.cs">
+    <Compile Include="FormCompararSoftware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPesoCaracteristica.Designer.cs">
-      <DependentUpon>FormPesoCaracteristica.cs</DependentUpon>
+    <Compile Include="FormCompararSoftware.Designer.cs">
+      <DependentUpon>FormCompararSoftware.cs</DependentUpon>
     </Compile>
     <Compile Include="FormQuestoes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormQuestoes.Designer.cs">
       <DependentUpon>FormQuestoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResultado.Designer.cs">
+      <DependentUpon>FormResultado.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSoftware.cs">
       <SubType>Form</SubType>
@@ -154,11 +160,14 @@
     <EmbeddedResource Include="FormObterNomeAvaliador.resx">
       <DependentUpon>FormObterNomeAvaliador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPesoCaracteristica.resx">
-      <DependentUpon>FormPesoCaracteristica.cs</DependentUpon>
+    <EmbeddedResource Include="FormCompararSoftware.resx">
+      <DependentUpon>FormCompararSoftware.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuestoes.resx">
       <DependentUpon>FormQuestoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResultado.resx">
+      <DependentUpon>FormResultado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSoftware.resx">
       <DependentUpon>FormSoftware.cs</DependentUpon>

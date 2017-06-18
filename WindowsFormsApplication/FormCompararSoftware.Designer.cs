@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication
 {
-    partial class FormPesoCaracteristica
+    partial class FormCompararSoftware
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesoCaracteristica));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCompararSoftware));
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtPeso = new System.Windows.Forms.TextBox();
@@ -187,6 +187,8 @@
             // 
             // dgSoftware
             // 
+            this.dgSoftware.AllowUserToAddRows = false;
+            this.dgSoftware.AllowUserToDeleteRows = false;
             this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgSoftware.Location = new System.Drawing.Point(3, 45);
@@ -195,6 +197,7 @@
             this.dgSoftware.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgSoftware.Size = new System.Drawing.Size(1032, 306);
             this.dgSoftware.TabIndex = 13;
+            this.dgSoftware.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSoftware_CellContentClick);
             // 
             // toolStrip1
             // 
@@ -247,14 +250,15 @@
             this.toolStripButtonComparar.Name = "toolStripButtonComparar";
             this.toolStripButtonComparar.Size = new System.Drawing.Size(23, 26);
             this.toolStripButtonComparar.Text = "Comparar";
+            this.toolStripButtonComparar.Click += new System.EventHandler(this.toolStripButtonComparar_Click);
             // 
-            // FormPesoCaracteristica
+            // FormCompararSoftware
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1054, 612);
             this.Controls.Add(this.gbSoftware);
             this.Controls.Add(this.gbCaracteristica);
-            this.Name = "FormPesoCaracteristica";
+            this.Name = "FormCompararSoftware";
             this.Text = "Comparação de Softwares";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPesoCaracteristica_FormClosing);

@@ -69,6 +69,7 @@ namespace WindowsFormsApplication
 
             FormAvaliacao form = new FormAvaliacao(avaliacaoAtual.SoftwareId);
             form.ShowDialog();
+            this.CarregaDados();
         }
 
         private void dgSoftware_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

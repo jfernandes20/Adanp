@@ -10,12 +10,12 @@ using ClassLibrary;
 
 namespace WindowsFormsApplication
 {
-    public partial class FormPesoCaracteristica : FormBase
+    public partial class FormCompararSoftware : FormBase
     {
         protected override bool ValidaInatividade { get; set; }
         private List<Caracteristica> caracteristicas = new List<Caracteristica>();
         private List<Avaliacao> listaSoftware = new List<Avaliacao>();
-        public FormPesoCaracteristica()
+        public FormCompararSoftware()
         {
             InitializeComponent();
         }
@@ -86,6 +86,8 @@ namespace WindowsFormsApplication
                 this.caracteristicas.Where(d => d.Id == Convert.ToUInt32(this.dgCaracteristica.Rows[e.RowIndex].Cells["Id"].Value.ToString())).ToList().ForEach(d => d.Peso = 0);
                 this.dgCaracteristica.Rows.RemoveAt(e.RowIndex);
                 this.carregaCombo();
+                if (this.dgSoftware.Columns["ClSelecao"] != null) this.dgSoftware.Columns.Remove(this.dgSoftware.Columns["ClSelecao"]);
+                this.dgSoftware.DataSource = null;
             }
         }
         protected override void timer1_Tick(object sender, EventArgs e)
@@ -94,12 +96,18 @@ namespace WindowsFormsApplication
             {
                 this.timer1.Stop();
                 MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.caracteristicas.ForEach(d => d.Peso = 0);
-                this.carregaCombo();
-                this.dgCaracteristica.Rows.Clear();
-                this.txtPeso.Focus();
+                this.limpartela();
                 this.timer1.Start();
             }
+        }
+        private void limpartela()
+        {
+            this.caracteristicas.ForEach(d => d.Peso = 0);
+            this.carregaCombo();
+            this.dgCaracteristica.Rows.Clear();
+            if (this.dgSoftware.Columns["ClSelecao"] != null) this.dgSoftware.Columns.Remove(this.dgSoftware.Columns["ClSelecao"]);
+            this.dgSoftware.DataSource = null;
+            this.txtPeso.Focus();
         }
 
         private void FormPesoCaracteristica_FormClosing(object sender, FormClosingEventArgs e)
@@ -154,7 +162,55 @@ namespace WindowsFormsApplication
             dgSoftware.Width = gbSoftware.Width - 10;
             gbSoftware.Top = gbCaracteristica.Height + 15;
             gbSoftware.Height = this.Height - (gbCaracteristica.Height + 65);
+        }
 
+        private void toolStripButtonComparar_Click(object sender, EventArgs e)
+        {
+
+            List<Software> softwareComparar = new List<Software>();
+            foreach (DataGridViewRow row in this.dgSoftware.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["ClSelecao"].Value))
+                {
+                    softwareComparar.Add(this.listaSoftware.Select(d => d.SoftwareId).Where(d => d.Id == Convert.ToInt32(row.Cells["CodigoIdentificacao"].Value)).First());
+                }
+            }
+            if (softwareComparar.Count >= 2 && softwareComparar.Count <= 5)
+            {
+                this.ValidaInatividade = false;
+                FormResultado resultado = new FormResultado(Avaliacao.ObterNotasPorSoftware(softwareComparar), this.caracteristicas);
+                resultado.ShowDialog();
+                this.ValidaInatividade = true;
+            }
+            else
+            {
+                MessageBox.Show("Para comprar software é necessario selecionar pelo menos 2 e no máximo 5 softwares!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgSoftware_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && this.dgSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewCheckBoxCell)
+                {
+                    this.dgSoftware.BeginEdit(true);
+
+                    if ((this.dgSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell).Value != null)
+                        (this.dgSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell).Value = !Convert.ToBoolean(this.dgSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                    else
+                        (this.dgSoftware.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewCheckBoxCell).Value = true;
+
+                    this.dgSoftware.EndEdit();
+                    this.dgSoftware.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Ocorreu um erro ao selecionar a célula do grid.",
+                    "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

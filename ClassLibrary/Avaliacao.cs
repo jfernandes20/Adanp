@@ -127,5 +127,36 @@ namespace ClassLibrary
             }
             return listaResultado;
         }
+        public static DataTable ObterNotasPorSoftware(List<Software> soft)
+        {
+
+            DataTable tabelaRetorno = new DataTable();
+            List<Software> retorno = new List<Software>();
+            using (SQLiteConnection connection = AppSetting.retornaConexao())
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = string.Format("SELECT * FROM View_Obter_Notas_Por_Caracteristica V WHERE V.SoftwareId IN ({0})", string.Join(",", soft.Select(d => d.Id).ToArray()));
+                command.CommandType = CommandType.Text;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                da.Fill(tabelaRetorno);
+                connection.Close();
+            }
+            //foreach (var softwareAtual in tabelaRetorno.AsEnumerable().Select(d => d["SoftwareId"]).Distinct())
+            //{
+            //    Software s = new Software();
+
+            //    foreach (DataRow linha in tabelaRetorno.AsEnumerable().Where(d => d["SoftwareId"].ToString() == softwareAtual.ToString()))
+            //    {
+            //        s.Id = Convert.ToInt32(linha["SoftwareId"]);
+            //        s.NomeSoftware = linha["NomeSoftware"].ToString();
+            //        s.NotaFinal += Convert.ToInt32(linha["NotaTotal"]) * Convert.ToInt32((carac.Where(d => d.Id == Convert.ToInt32(linha["CaracteristicaId"])).Select(d => d.Peso)).First());
+            //    }
+            //    retorno.Add(s);
+             
+            //}
+            return tabelaRetorno;
+        }
     }
 }

@@ -14,7 +14,10 @@ namespace ClassLibrary
         public string TecnologiaSoftware { get; set; }
         public string FornecedorSoftware { get; set; }
         public DateTime DataInsercao { get; set; }
-
+        /// <summary>
+        /// Este atributo somente é utilizado ao realizar uma comparação de software, cujo o resultado obtido na avalição multiplicado pelo peso retorna a nota.
+        /// </summary>
+        public int NotaFinal { get; set; }
         public static List<Software> ListarSoftware(string nomesoftware)
         {
             DataTable tabelaRetorno = new DataTable();

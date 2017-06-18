@@ -90,7 +90,7 @@ namespace WindowsFormsApplication
 
         private void compararToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPesoCaracteristica form = new FormPesoCaracteristica();
+            FormCompararSoftware form = new FormCompararSoftware();
             form.MdiParent = this;
             ShowUniqueInstance(form);
         }

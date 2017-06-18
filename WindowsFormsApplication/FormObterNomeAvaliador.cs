@@ -24,6 +24,20 @@ namespace WindowsFormsApplication
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            this.confimar();
+        }
+
+        private void FormObterNomeAvaliador_Load(object sender, EventArgs e)
+        {
+            this.txtNomeAvaliador.Focus();
+        }
+
+        private void txtNomeAvaliador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13) this.confimar();
+        }
+        private void confimar()
+        {
             if (string.IsNullOrWhiteSpace(txtNomeAvaliador.Text))
             {
                 MessageBox.Show("O nome do avalidador é obrigatório", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -31,11 +45,6 @@ namespace WindowsFormsApplication
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void FormObterNomeAvaliador_Load(object sender, EventArgs e)
-        {
-            this.txtNomeAvaliador.Focus();
         }
     }
 }

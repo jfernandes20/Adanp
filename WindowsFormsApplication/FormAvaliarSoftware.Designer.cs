@@ -97,6 +97,8 @@
             // 
             // dgSoftware
             // 
+            this.dgSoftware.AllowUserToAddRows = false;
+            this.dgSoftware.AllowUserToDeleteRows = false;
             this.dgSoftware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSoftware.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgSoftware.Location = new System.Drawing.Point(0, 29);

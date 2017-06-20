@@ -83,7 +83,8 @@ namespace WindowsFormsApplication
                 this.cbSubCararcteristica.Visible = false;
                 this.cbSubCararcteristica.DataSource = null;
                 this.lbSubCategoria.Visible = false;
-                quest = new Questao();
+                if (quest.Id == 0)
+                    quest = new Questao();
             }
 
         }

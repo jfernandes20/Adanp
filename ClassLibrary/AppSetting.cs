@@ -27,6 +27,7 @@ namespace ClassLibrary
             config.ConnectionStrings.ConnectionStrings["AdanpConnectionString"].ConnectionString = GetConnectionString(key);
             config.ConnectionStrings.ConnectionStrings["AdanpConnectionString"].ProviderName = "System.Data.SQLite";
             config.Save(ConfigurationSaveMode.Modified);
+
         }
         public static SQLiteConnection retornaConexao()
         {
@@ -36,7 +37,6 @@ namespace ClassLibrary
 #else
            return new SQLiteConnection(ConfigurationManager.ConnectionStrings["ReleaseAdanpConnectionString"].ConnectionString);  
 #endif
-
         }
     }
 }

@@ -99,5 +99,12 @@ namespace WindowsFormsApplication
         {
             this.timer1.Dispose();
         }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox form = new AboutBox();
+            form.MdiParent = this;
+            ShowUniqueInstance(form);
+        }
     }
 }

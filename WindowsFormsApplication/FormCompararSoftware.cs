@@ -131,12 +131,11 @@ namespace WindowsFormsApplication
                 MessageBox.Show("Não é possível carregar softwares pois ainda existem características sem peso!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text);
-            this.dgSoftware.DataSource = this.listaSoftware.Where(d => d.Id != 0).Select(d => new { CodigoIdentificacao = d.SoftwareId.Id, Nome = d.SoftwareId.NomeSoftware, Fornecedor = d.SoftwareId.FornecedorSoftware, Tecnologia = d.SoftwareId.TecnologiaSoftware, DataCadastro = d.SoftwareId.DataInsercao.ToString("dd/MM/yyyy"), DataAvaliacao = (d.DataAvaliacao == DateTime.MinValue ? string.Empty : d.DataAvaliacao.ToString("dd/MM/yyyy")), Avaliador = d.NomeAvaliador }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
+            this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text,true);
+            this.dgSoftware.DataSource = this.listaSoftware.Where(d => d.Id != 0).Select(d => new { CodigoIdentificacao = d.SoftwareId.Id, Nome = d.SoftwareId.NomeSoftware, Fornecedor = d.SoftwareId.FornecedorSoftware, Tecnologia = d.SoftwareId.TecnologiaSoftware, DataCadastro = d.SoftwareId.DataInsercao.ToString("dd/MM/yyyy") }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
             this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
             this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
-            this.dgSoftware.Columns["DataAvaliacao"].HeaderText = "Data de Avaliação";
 
 
             if (this.dgSoftware.Columns["ClSelecao"] != null) this.dgSoftware.Columns.Remove(this.dgSoftware.Columns["ClSelecao"]);
@@ -178,8 +177,9 @@ namespace WindowsFormsApplication
             if (softwareComparar.Count >= 2 && softwareComparar.Count <= 5)
             {
                 this.ValidaInatividade = false;
-                FormResultado resultado = new FormResultado(Avaliacao.ObterNotasPorSoftware(softwareComparar), this.caracteristicas);
-                resultado.ShowDialog();
+                FormSelecaoAvaliacao frmAvaliacoes = new FormSelecaoAvaliacao(softwareComparar, this.caracteristicas);
+                //FormResultado resultado = new FormResultado(Avaliacao.ObterNotasPorSoftware(softwareComparar), this.caracteristicas);
+                frmAvaliacoes.ShowDialog();
                 this.ValidaInatividade = true;
             }
             else

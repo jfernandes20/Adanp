@@ -66,7 +66,7 @@ namespace ClassLibrary
                 throw ex;
             }
         }
-        public static List<Avaliacao> ListarSoftwareAvaliacao(string nomesoftware)
+        public static List<Avaliacao> ListarSoftwareAvaliacao(string nomesoftware, bool ultimaData)
         {
             DataSet tabelaRetorno = new DataSet();
             using (SQLiteConnection connection = AppSetting.retornaConexao())
@@ -74,19 +74,45 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = string.Format("SELECT Software.Id SoftwareId,Software.NomeSoftware, Software.TecnologiaSoftware,Software.FornecedorSoftware, Software.DataInsercao, "
-                    + "A.* FROM Software  LEFT JOIN Avaliacao A ON A.SoftwareId = Software.Id WHERE Software.NomeSoftware LIKE '%{0}%';"
-                    + "SELECT * FROM View_Listar_Software_Avaliacao WHERE NomeSoftware LIKE '%{0}%'", nomesoftware);
+                command.CommandText = string.Format(@"SELECT S.Id SoftwareId, S.NomeSoftware, S.TecnologiaSoftware, S.FornecedorSoftware, S.DataInsercao, 
+                     A.Id AvaliacaoId, A.NomeAvaliador, A.SoftwareId, MAX(A.DataAvaliacao) DataAvaliacao FROM Software S LEFT JOIN Avaliacao A ON A.SoftwareId = S.Id WHERE S.NomeSoftware like '%{0}%' 
+                     GROUP BY S.Id;  
+                     SELECT * FROM View_Listar_Software_Avaliacao WHERE NomeSoftware LIKE '%{0}%'", nomesoftware);
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);
                 connection.Close();
             }
+            return ListarSoftwareAvaliacao(tabelaRetorno);
+
+        }
+        public static List<Avaliacao> ListarSoftwareAvaliacao(List<Software> listSoftwares)
+        {
+            DataSet tabelaRetorno = new DataSet();
+            string softwareString = string.Join(",", listSoftwares.Select(d => d.Id).ToArray());
+            using (SQLiteConnection connection = AppSetting.retornaConexao())
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+                command.CommandText = string.Format(@"SELECT S.Id SoftwareId, S.NomeSoftware,S.DataInsercao,S.TecnologiaSoftware, S.FornecedorSoftware , A.Id AvaliacaoId, A.DataAvaliacao, A.NomeAvaliador FROM Software S INNER JOIN Avaliacao A ON A.SoftwareId = S.Id WHERE S.Id IN ({0}); 
+                                SELECT * FROM View_Listar_Software_Avaliacao WHERE SoftwareId IN ({0});", softwareString);
+                command.CommandType = CommandType.Text;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                da.Fill(tabelaRetorno);
+                connection.Close();
+            }
+            return ListarSoftwareAvaliacao(tabelaRetorno);
+
+        }
+        public static List<Avaliacao> ListarSoftwareAvaliacao(DataSet tabelaRetorno)
+        {
+
             List<Avaliacao> listaResultado = new List<Avaliacao>();
             foreach (DataRow linha in tabelaRetorno.Tables[0].AsEnumerable())
             {
                 Avaliacao Av = new Avaliacao();
-                Av.Id = Convert.ToInt32(linha["Id"] == DBNull.Value ? 0 :  linha["Id"]);
+                Av.Id = Convert.ToInt32(linha["AvaliacaoId"] == DBNull.Value ? 0 : linha["AvaliacaoId"]);
                 Av.DataAvaliacao = Convert.ToDateTime(linha["DataAvaliacao"] == DBNull.Value ? DateTime.MinValue : linha["DataAvaliacao"]);
                 Av.NomeAvaliador = linha["NomeAvaliador"].ToString();
                 Av.SoftwareId = new Software()
@@ -127,7 +153,7 @@ namespace ClassLibrary
             }
             return listaResultado;
         }
-        public static DataTable ObterNotasPorSoftware(List<Software> soft)
+        public static DataTable ObterNotasPorSoftware(List<Avaliacao> avaliacoes)
         {
 
             DataTable tabelaRetorno = new DataTable();
@@ -137,7 +163,7 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = string.Format("SELECT * FROM View_Obter_Notas_Por_Caracteristica V WHERE V.SoftwareId IN ({0})", string.Join(",", soft.Select(d => d.Id).ToArray()));
+                command.CommandText = string.Format("SELECT * FROM View_Obter_Notas_Por_Caracteristica V WHERE V.AvaliacaoId IN ({0})", string.Join(",", avaliacoes.Select(d => d.Id).ToArray()));
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);
@@ -154,7 +180,7 @@ namespace ClassLibrary
             //        s.NotaFinal += Convert.ToInt32(linha["NotaTotal"]) * Convert.ToInt32((carac.Where(d => d.Id == Convert.ToInt32(linha["CaracteristicaId"])).Select(d => d.Peso)).First());
             //    }
             //    retorno.Add(s);
-             
+
             //}
             return tabelaRetorno;
         }

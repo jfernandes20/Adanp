@@ -22,12 +22,12 @@ namespace WindowsFormsApplication
         {
             try
             {
-                this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text);
+                this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text, true);
                 this.dgSoftware.DataSource = this.listaSoftware.Select(d => new { CodigoIdentificacao = d.SoftwareId.Id, Nome = d.SoftwareId.NomeSoftware, Fornecedor = d.SoftwareId.FornecedorSoftware, Tecnologia = d.SoftwareId.TecnologiaSoftware, DataCadastro = d.SoftwareId.DataInsercao.ToString("dd/MM/yyyy"), DataAvaliacao = (d.DataAvaliacao == DateTime.MinValue ? string.Empty : d.DataAvaliacao.ToString("dd/MM/yyyy")), Avaliador = d.NomeAvaliador }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
                 this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";
                 this.dgSoftware.Columns["DataCadastro"].HeaderText = "Data de Cadastro";
-                this.dgSoftware.Columns["DataAvaliacao"].HeaderText = "Data de Avaliação";
+                this.dgSoftware.Columns["DataAvaliacao"].HeaderText = "Data da Última Avaliação";
 
                 if (this.dgSoftware.Rows.Count == 0)
                 {
@@ -61,7 +61,7 @@ namespace WindowsFormsApplication
             Avaliacao avaliacaoAtual = new Avaliacao();
             avaliacaoAtual = listaSoftware.Where(d => d.SoftwareId.Id == Convert.ToInt32(this.dgSoftware.CurrentRow.Cells["CodigoIdentificacao"].Value)).First();
 
-            if (avaliacaoAtual.Id > 0)
+            if (avaliacaoAtual.Id > 0 && avaliacaoAtual.DataAvaliacao.ToShortDateString() == DateTime.Now.ToShortDateString())
             {
                 MessageBox.Show("Não é possível avaliar este software, pois o mesmo já foi avaliado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication
         private void dgSoftware_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in this.dgSoftware.Rows)
-                row.DefaultCellStyle.BackColor = (string.IsNullOrWhiteSpace(row.Cells["DataAvaliacao"].Value.ToString())) ? Color.White : Color.FromArgb(46, 218, 166);
+                row.DefaultCellStyle.BackColor = row.Cells["DataAvaliacao"].Value.ToString() != DateTime.Now.ToString("dd/MM/yyyy") ? Color.White : Color.FromArgb(46, 218, 166);
         }
     }
 }

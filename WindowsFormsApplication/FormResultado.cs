@@ -74,7 +74,7 @@ namespace WindowsFormsApplication
                 });
             }
             int soft = -1;
-            foreach (var r in this.resultados.AsEnumerable().Select(d => new { Id = Convert.ToInt32(d["SoftwareId"]), Nome = d["NomeSoftware"].ToString() }).Distinct())
+            foreach (var r in this.resultados.AsEnumerable().Select(d => new { Id = Convert.ToInt32(d["SoftwareId"]), Nome = d["NomeSoftware"].ToString(), DataAvaliacao = Convert.ToDateTime(d["DataAvaliacao"]).ToShortDateString() }).Distinct())
             {
                 soft++;
                 int linha = 0;
@@ -82,7 +82,7 @@ namespace WindowsFormsApplication
                 Label labels = (Label)groupBox1.Controls.Find("lbSoftware" + (soft + 1), true).First();
                 if (labels != null)
                 {
-                    labels.Text = string.Format("Soft{0} – {1}", (soft + 1).ToString(), r.Nome.ToString());
+                    labels.Text = string.Format("Soft{0} – {1}\nData de Avaliação: {2}", (soft + 1).ToString(), r.Nome.ToString(), r.DataAvaliacao);
                 }
 
                 foreach (DataRow exibicao in this.resultados.AsEnumerable().Where(d => Convert.ToInt32(d["SoftwareId"]) == r.Id))

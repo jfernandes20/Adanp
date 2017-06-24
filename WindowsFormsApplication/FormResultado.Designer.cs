@@ -30,11 +30,11 @@
         {
             this.dgResultado = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbSoftware1 = new System.Windows.Forms.Label();
-            this.lbSoftware2 = new System.Windows.Forms.Label();
-            this.lbSoftware3 = new System.Windows.Forms.Label();
-            this.lbSoftware4 = new System.Windows.Forms.Label();
             this.lbSoftware5 = new System.Windows.Forms.Label();
+            this.lbSoftware4 = new System.Windows.Forms.Label();
+            this.lbSoftware3 = new System.Windows.Forms.Label();
+            this.lbSoftware2 = new System.Windows.Forms.Label();
+            this.lbSoftware1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgResultado)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,13 +64,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Legenda";
             // 
-            // lbSoftware1
+            // lbSoftware5
             // 
-            this.lbSoftware1.AutoSize = true;
-            this.lbSoftware1.Location = new System.Drawing.Point(15, 26);
-            this.lbSoftware1.Name = "lbSoftware1";
-            this.lbSoftware1.Size = new System.Drawing.Size(0, 13);
-            this.lbSoftware1.TabIndex = 0;
+            this.lbSoftware5.AutoSize = true;
+            this.lbSoftware5.Location = new System.Drawing.Point(725, 26);
+            this.lbSoftware5.Name = "lbSoftware5";
+            this.lbSoftware5.Size = new System.Drawing.Size(0, 13);
+            this.lbSoftware5.TabIndex = 0;
+            // 
+            // lbSoftware4
+            // 
+            this.lbSoftware4.AutoSize = true;
+            this.lbSoftware4.Location = new System.Drawing.Point(370, 65);
+            this.lbSoftware4.Name = "lbSoftware4";
+            this.lbSoftware4.Size = new System.Drawing.Size(0, 13);
+            this.lbSoftware4.TabIndex = 0;
+            // 
+            // lbSoftware3
+            // 
+            this.lbSoftware3.AutoSize = true;
+            this.lbSoftware3.Location = new System.Drawing.Point(370, 26);
+            this.lbSoftware3.Name = "lbSoftware3";
+            this.lbSoftware3.Size = new System.Drawing.Size(0, 13);
+            this.lbSoftware3.TabIndex = 0;
             // 
             // lbSoftware2
             // 
@@ -80,29 +96,13 @@
             this.lbSoftware2.Size = new System.Drawing.Size(0, 13);
             this.lbSoftware2.TabIndex = 0;
             // 
-            // lbSoftware3
+            // lbSoftware1
             // 
-            this.lbSoftware3.AutoSize = true;
-            this.lbSoftware3.Location = new System.Drawing.Point(350, 26);
-            this.lbSoftware3.Name = "lbSoftware3";
-            this.lbSoftware3.Size = new System.Drawing.Size(0, 13);
-            this.lbSoftware3.TabIndex = 0;
-            // 
-            // lbSoftware4
-            // 
-            this.lbSoftware4.AutoSize = true;
-            this.lbSoftware4.Location = new System.Drawing.Point(350, 65);
-            this.lbSoftware4.Name = "lbSoftware4";
-            this.lbSoftware4.Size = new System.Drawing.Size(0, 13);
-            this.lbSoftware4.TabIndex = 0;
-            // 
-            // lbSoftware5
-            // 
-            this.lbSoftware5.AutoSize = true;
-            this.lbSoftware5.Location = new System.Drawing.Point(654, 26);
-            this.lbSoftware5.Name = "lbSoftware5";
-            this.lbSoftware5.Size = new System.Drawing.Size(0, 13);
-            this.lbSoftware5.TabIndex = 0;
+            this.lbSoftware1.AutoSize = true;
+            this.lbSoftware1.Location = new System.Drawing.Point(15, 26);
+            this.lbSoftware1.Name = "lbSoftware1";
+            this.lbSoftware1.Size = new System.Drawing.Size(0, 13);
+            this.lbSoftware1.TabIndex = 0;
             // 
             // FormResultado
             // 

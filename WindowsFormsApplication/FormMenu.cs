@@ -54,7 +54,7 @@ namespace WindowsFormsApplication
 
         protected override void timer1_Tick(object sender, EventArgs e)
         {
-            this.LbData.Text = string.Concat(DateTime.Now.ToLongDateString(),"  " ,DateTime.Now.ToLongTimeString());
+            this.LbData.Text = string.Concat(DateTime.Now.ToLongDateString(), "  ", DateTime.Now.ToLongTimeString());
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
@@ -85,9 +85,7 @@ namespace WindowsFormsApplication
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            ShowUniqueInstance(form);
-            //this.Close();
+            this.Close();
         }
 
         private void compararToolStripMenuItem_Click(object sender, EventArgs e)

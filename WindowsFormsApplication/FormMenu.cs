@@ -54,6 +54,7 @@ namespace WindowsFormsApplication
 
         protected override void timer1_Tick(object sender, EventArgs e)
         {
+            this.lbTempoInativo.Text = "Tempo Inativo: " + Program.GetLastInputTime().ToString();
             this.LbData.Text = string.Concat(DateTime.Now.ToLongDateString(), "  ", DateTime.Now.ToLongTimeString());
         }
 

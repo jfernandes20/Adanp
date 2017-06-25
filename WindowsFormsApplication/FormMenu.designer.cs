@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelRodape = new System.Windows.Forms.Panel();
+            this.lbTempoInativo = new System.Windows.Forms.Label();
             this.LbData = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,8 +41,8 @@
             this.compararToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRodape.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,6 +51,7 @@
             // 
             // panelRodape
             // 
+            this.panelRodape.Controls.Add(this.lbTempoInativo);
             this.panelRodape.Controls.Add(this.LbData);
             this.panelRodape.Controls.Add(this.panel1);
             this.panelRodape.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -57,6 +59,16 @@
             this.panelRodape.Name = "panelRodape";
             this.panelRodape.Size = new System.Drawing.Size(1013, 34);
             this.panelRodape.TabIndex = 4;
+            // 
+            // lbTempoInativo
+            // 
+            this.lbTempoInativo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbTempoInativo.Location = new System.Drawing.Point(300, 11);
+            this.lbTempoInativo.Name = "lbTempoInativo";
+            this.lbTempoInativo.Size = new System.Drawing.Size(253, 14);
+            this.lbTempoInativo.TabIndex = 13;
+            this.lbTempoInativo.Text = "Tempo inativo: 0";
+            this.lbTempoInativo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // LbData
             // 
@@ -157,19 +169,19 @@
             this.CadastrarToolStripMenuItem.Text = "Cadastro";
             this.CadastrarToolStripMenuItem.Click += new System.EventHandler(this.CadastrarToolStripMenuItem_Click);
             // 
-            // sairToolStripMenuItem
-            // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.sobreToolStripMenuItem.Text = "Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // FormMenu
             // 
@@ -215,6 +227,7 @@
         private System.Windows.Forms.Label LbData;
         private System.Windows.Forms.ToolStripMenuItem compararToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
+        private System.Windows.Forms.Label lbTempoInativo;
     }
 }
 

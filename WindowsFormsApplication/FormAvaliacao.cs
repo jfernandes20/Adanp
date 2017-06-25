@@ -17,6 +17,7 @@ namespace WindowsFormsApplication
         Questao questaoAtual = new Questao();
         Software softwareAvaliado = new Software();
         Avaliacao avaliacao = new Avaliacao();
+        bool avaliacaoConcluida = false;
 
         int NumeroAtual = 0;
         public FormAvaliacao(Software soft)
@@ -134,6 +135,7 @@ namespace WindowsFormsApplication
                             avaliacao.NomeAvaliador = form.NomeAvaliador;
                             avaliacao.Salvar();
                             MessageBox.Show("Avaliação de software finalizada com sucesso!", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.avaliacaoConcluida = true;
                             this.Close();
                         }
                     }
@@ -189,8 +191,9 @@ namespace WindowsFormsApplication
 
         private void FormAvaliacao_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Essa avaliação será perdida. Deseja realmente fechar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                e.Cancel = true;
+            if (!avaliacaoConcluida)
+                if (MessageBox.Show("Essa avaliação será perdida. Deseja realmente fechar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    e.Cancel = true;
             this.timer1.Dispose();
         }
     }

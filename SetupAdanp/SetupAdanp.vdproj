@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_010374D52F5F4471AB9C252D92B016A8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_0122A392277246C895ED94F0D7187719"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -34,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_5CAA64124B3341A8A62016EE89FE991D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DE1822F69EB94F2BA7BCBCF989A7AE0B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -162,26 +162,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_010374D52F5F4471AB9C252D92B016A8"
-            {
-            "SourcePath" = "8:..\\DB\\adanp.db"
-            "TargetName" = "8:adanp.db"
-            "Tag" = "8:"
-            "Folder" = "8:_D460A99A26EC4EFFA8FA44C9F8CBE6C3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0122A392277246C895ED94F0D7187719"
             {
             "SourcePath" = "8:..\\WindowsFormsApplication\\Ícone_ES_Trasp.ico"
@@ -231,6 +211,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE1822F69EB94F2BA7BCBCF989A7AE0B"
+            {
+            "SourcePath" = "8:..\\DB\\adanp.db"
+            "TargetName" = "8:adanp.db"
+            "Tag" = "8:"
+            "Folder" = "8:_D460A99A26EC4EFFA8FA44C9F8CBE6C3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9067457680354C444EF0CCB8D290588"
@@ -332,7 +332,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Adanp"
         "ProductCode" = "8:{5486B07F-A75B-4A1D-B536-044D597012A7}"
-        "PackageCode" = "8:{14180889-5563-44A8-96B6-C55409D665C4}"
+        "PackageCode" = "8:{CD5BF686-915C-4285-B306-203DD7C59AA2}"
         "UpgradeCode" = "8:{9034FD11-03B6-4D69-B46A-304E9AD581FA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

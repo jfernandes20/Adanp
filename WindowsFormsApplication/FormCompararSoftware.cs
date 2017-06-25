@@ -46,11 +46,13 @@ namespace WindowsFormsApplication
             {
                 this.cbCaracteristica.Enabled = false;
                 this.txtPeso.Enabled = false;
+                this.ListarSoftware();
             }
             else
             {
                 this.cbCaracteristica.Enabled = true;
                 this.txtPeso.Enabled = true;
+                this.dgSoftware.DataSource = null;
             }
         }
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -131,7 +133,7 @@ namespace WindowsFormsApplication
                 MessageBox.Show("Não é possível carregar softwares pois ainda existem características sem peso!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(this.toolStripTextBoxCriterio.Text,true);
+            this.listaSoftware = Avaliacao.ListarSoftwareAvaliacao(string.Empty,true);
             this.dgSoftware.DataSource = this.listaSoftware.Where(d => d.Id != 0).Select(d => new { CodigoIdentificacao = d.SoftwareId.Id, Nome = d.SoftwareId.NomeSoftware, Fornecedor = d.SoftwareId.FornecedorSoftware, Tecnologia = d.SoftwareId.TecnologiaSoftware, DataCadastro = d.SoftwareId.DataInsercao.ToString("dd/MM/yyyy") }).OrderBy(d => d.CodigoIdentificacao).AsEnumerable().ToList();
             this.dgSoftware.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSoftware.Columns["CodigoIdentificacao"].HeaderText = "Código de Identificação";

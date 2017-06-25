@@ -58,7 +58,7 @@
             this.btnProxima.Name = "btnProxima";
             this.btnProxima.Size = new System.Drawing.Size(75, 23);
             this.btnProxima.TabIndex = 2;
-            this.btnProxima.Text = "Proxíma";
+            this.btnProxima.Text = "Próxima";
             this.btnProxima.UseVisualStyleBackColor = true;
             this.btnProxima.Click += new System.EventHandler(this.btnProxima_Click);
             // 

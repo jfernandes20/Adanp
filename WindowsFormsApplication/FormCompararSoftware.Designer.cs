@@ -44,8 +44,6 @@
             this.gbSoftware = new System.Windows.Forms.GroupBox();
             this.dgSoftware = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBoxCriterio = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonFiltrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonComparar = new System.Windows.Forms.ToolStripButton();
@@ -203,8 +201,6 @@
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.toolStripTextBoxCriterio,
             this.toolStripButtonFiltrar,
             this.toolStripSeparator2,
             this.toolStripButtonComparar});
@@ -213,20 +209,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(1032, 29);
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(60, 26);
-            this.toolStripLabel1.Text = "Pesquisar:";
-            // 
-            // toolStripTextBoxCriterio
-            // 
-            this.toolStripTextBoxCriterio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxCriterio.MaxLength = 200;
-            this.toolStripTextBoxCriterio.Name = "toolStripTextBoxCriterio";
-            this.toolStripTextBoxCriterio.Size = new System.Drawing.Size(150, 29);
-            this.toolStripTextBoxCriterio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.toolStripTextBoxCriterio_KeyPress);
             // 
             // toolStripButtonFiltrar
             // 
@@ -290,8 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DCaracteristica;
         private System.Windows.Forms.DataGridViewTextBoxColumn DgPeso;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCriterio;
         private System.Windows.Forms.ToolStripButton toolStripButtonFiltrar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButtonComparar;

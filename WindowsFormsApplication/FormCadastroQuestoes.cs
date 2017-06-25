@@ -48,7 +48,7 @@ namespace WindowsFormsApplication
 
         protected override void timer1_Tick(object sender, EventArgs e)
         {
-            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
+            if (Program.GetLastInputTime() >= this.tempoInativo && this.ValidaInatividade)
             {
                 this.timer1.Stop();
                 MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);

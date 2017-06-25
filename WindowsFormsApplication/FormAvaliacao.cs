@@ -23,6 +23,9 @@ namespace WindowsFormsApplication
         {
             InitializeComponent();
             softwareAvaliado = soft;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
         private void FormAvaliacao_Load(object sender, EventArgs e)
         {
@@ -157,7 +160,7 @@ namespace WindowsFormsApplication
                 nota = 5;
             else
             {
-                MessageBox.Show("Nenhuma Nota selecionada");
+                MessageBox.Show("Nenhuma nota foi selecionada!","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return false;
             }
             avaliacao.Notas.Where(n => n.QuestaoId.Id == questaoAtual.Id).ToList().ForEach(n => n.Nota = nota);
@@ -173,7 +176,7 @@ namespace WindowsFormsApplication
         }
         protected override void timer1_Tick(object sender, EventArgs e)
         {
-            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
+            if (Program.GetLastInputTime() >= this.tempoInativo && this.ValidaInatividade)
             {
                 this.timer1.Stop();
                 MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -186,6 +189,8 @@ namespace WindowsFormsApplication
 
         private void FormAvaliacao_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (MessageBox.Show("Essa avaliação será perdida. Deseja realmente fechar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                e.Cancel = true;
             this.timer1.Dispose();
         }
     }

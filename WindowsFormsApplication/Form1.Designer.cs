@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dgTeste = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelHora = new System.Windows.Forms.Label();
+            this.Tempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgTeste)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,58 +39,13 @@
             this.dgTeste.AllowUserToAddRows = false;
             this.dgTeste.AllowUserToDeleteRows = false;
             this.dgTeste.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgTeste.Location = new System.Drawing.Point(12, 103);
+            this.dgTeste.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tempo});
+            this.dgTeste.Location = new System.Drawing.Point(12, 34);
             this.dgTeste.Name = "dgTeste";
             this.dgTeste.ReadOnly = true;
             this.dgTeste.Size = new System.Drawing.Size(709, 341);
             this.dgTeste.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(328, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Inserir Teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nome";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(201, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Fone";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(204, 75);
-            this.maskedTextBox1.Mask = "(99) 00000-0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(118, 20);
-            this.maskedTextBox1.TabIndex = 1;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // labelHora
             // 
@@ -106,17 +55,18 @@
             this.labelHora.Size = new System.Drawing.Size(0, 13);
             this.labelHora.TabIndex = 6;
             // 
+            // Tempo
+            // 
+            this.Tempo.HeaderText = "Tempo";
+            this.Tempo.Name = "Tempo";
+            this.Tempo.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 491);
             this.Controls.Add(this.labelHora);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dgTeste);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -131,13 +81,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgTeste;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tempo;
     }
 }
 

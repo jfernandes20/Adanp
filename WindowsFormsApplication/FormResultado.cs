@@ -14,6 +14,7 @@ namespace WindowsFormsApplication
     {
         DataTable resultados = new DataTable();
         List<Caracteristica> caracteristica = new List<Caracteristica>();
+        List<Software> ganhadores = new List<Software>();
         public FormResultado(DataTable resultado, List<Caracteristica> carac)
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace WindowsFormsApplication
                 Name = "Característica",
                 Width = 30,
                 ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             });
             this.dgResultado.Columns.Add(new DataGridViewTextBoxColumn()
             {
@@ -43,7 +44,7 @@ namespace WindowsFormsApplication
                 Name = "Peso",
                 Width = 30,
                 ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             });
             int linGrid = 0;
             foreach (var x in caracteristica.OrderBy(d => d.CaracteristicaNumero).Select(d => new { Caracteristica = d.CaracteristicaNome, Peso = d.Peso }).AsEnumerable())
@@ -83,12 +84,25 @@ namespace WindowsFormsApplication
                 if (labels != null)
                 {
                     labels.Text = string.Format("Soft{0} – {1}\nData de Avaliação: {2}", (soft + 1).ToString(), r.Nome.ToString(), r.DataAvaliacao);
+                    if (this.ganhadores.Where(d => d.Id == r.Id).Any())
+                    {
+                        Label lbvencedor = new Label()
+                        {
+                            Name = "lbVencedor" + soft,
+                            Location = new Point(labels.Location.X + labels.Width+3, labels.Location.Y),
+                            TextAlign = ContentAlignment.MiddleLeft,
+                            Text = "← Vencedor",
+                            ForeColor = Color.Green,
+                            Size = labels.Size
+                        };
+                        this.groupBox1.Controls.Add(lbvencedor);
+                    }
                 }
 
                 foreach (DataRow exibicao in this.resultados.AsEnumerable().Where(d => Convert.ToInt32(d["SoftwareId"]) == r.Id))
                 {
-                    this.dgResultado.Rows[linha].Cells["Soft" + (soft + 1)].Value = exibicao["NotaTotal"].ToString();//exibicao["NomeSoftware"].ToString();
-                    this.dgResultado.Rows[linha].Cells["TotalPontos" + (soft + 1)].Value = Convert.ToInt32(exibicao["NotaTotal"].ToString()) * Convert.ToInt32(this.dgResultado.Rows[linha].Cells["Peso"].Value);
+                    this.dgResultado.Rows[linha].Cells["Soft" + (soft + 1)].Value = exibicao["NotaTotal"].ToString();
+                    this.dgResultado.Rows[linha].Cells["TotalPontos" + (soft + 1)].Value = Convert.ToInt32(exibicao["NotaTotal"].ToString()) * caracteristica.Where(d => d.Id == Convert.ToInt32(exibicao["CaracteristicaId"])).Select(d => d.Peso).First();
                     linha++;
                 }
             }
@@ -96,6 +110,7 @@ namespace WindowsFormsApplication
 
         private void FormResultado_Load(object sender, EventArgs e)
         {
+            this.ganhadores = Software.ObterMelhorSoftware(this.resultados, this.caracteristica);
             this.preencheGrid();
         }
     }

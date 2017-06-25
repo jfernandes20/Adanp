@@ -45,7 +45,7 @@
             this.ImagemLogo.Image = global::WindowsFormsApplication.Properties.Resources.Ícone_ES_Trasp;
             this.ImagemLogo.Location = new System.Drawing.Point(12, 12);
             this.ImagemLogo.Name = "ImagemLogo";
-            this.ImagemLogo.Size = new System.Drawing.Size(411, 137);
+            this.ImagemLogo.Size = new System.Drawing.Size(358, 137);
             this.ImagemLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ImagemLogo.TabIndex = 0;
             this.ImagemLogo.TabStop = false;
@@ -69,9 +69,9 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(417, 216);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(364, 180);
             this.tableLayoutPanel.TabIndex = 1;
             // 
             // labelProductName
@@ -82,7 +82,7 @@
             this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(408, 17);
+            this.labelProductName.Size = new System.Drawing.Size(355, 17);
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,7 +95,7 @@
             this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(408, 17);
+            this.labelVersion.Size = new System.Drawing.Size(355, 17);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,7 +108,7 @@
             this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(408, 17);
+            this.labelCopyright.Size = new System.Drawing.Size(355, 17);
             this.labelCopyright.TabIndex = 21;
             this.labelCopyright.Text = "Copyright";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,15 +121,15 @@
             this.labelTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
             this.labelTitulo.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(408, 17);
+            this.labelTitulo.Size = new System.Drawing.Size(355, 17);
             this.labelTitulo.TabIndex = 22;
-            this.labelTitulo.Text = "Integrantes";
+            this.labelTitulo.Text = "Desenvolvido por:";
             this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(334, 189);
+            this.okButton.Location = new System.Drawing.Point(281, 153);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(80, 24);
             this.okButton.TabIndex = 24;
@@ -141,16 +141,16 @@
             this.lbIntegrantes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbIntegrantes.Location = new System.Drawing.Point(3, 68);
             this.lbIntegrantes.Name = "lbIntegrantes";
-            this.lbIntegrantes.Size = new System.Drawing.Size(273, 118);
+            this.lbIntegrantes.Size = new System.Drawing.Size(237, 78);
             this.lbIntegrantes.TabIndex = 25;
             this.lbIntegrantes.Text = "label1";
             // 
             // lbMatricula
             // 
             this.lbMatricula.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMatricula.Location = new System.Drawing.Point(282, 68);
+            this.lbMatricula.Location = new System.Drawing.Point(246, 68);
             this.lbMatricula.Name = "lbMatricula";
-            this.lbMatricula.Size = new System.Drawing.Size(132, 118);
+            this.lbMatricula.Size = new System.Drawing.Size(115, 78);
             this.lbMatricula.TabIndex = 26;
             this.lbMatricula.Text = "label2";
             // 
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 381);
+            this.ClientSize = new System.Drawing.Size(382, 342);
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.ImagemLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

@@ -12,11 +12,12 @@ namespace WindowsFormsApplication
     public partial class FormBase : Form
     {
         protected virtual bool ValidaInatividade { get; set; }
-        protected int tempoInativo = 10;
-        protected String mensagemDesconectado = "Sessão encerrada devido inatividade";
+        protected int tempoInativo = 40;
+        protected String mensagemDesconectado = "Sessão encerrada por inatividade.";
         public FormBase()
         {
             InitializeComponent();
+            this.timer1.Interval = 1000;
             timer1.Start();
         }
 

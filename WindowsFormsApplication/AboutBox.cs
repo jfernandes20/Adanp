@@ -27,9 +27,9 @@ namespace WindowsFormsApplication
             this.labelCopyright.Text = AssemblyCopyright;
             this.lbIntegrantes.UseMnemonic = false;
             this.lbMatricula.UseMnemonic = false;
-            this.lbIntegrantes.Text = "CAMILA GOMES DE OLIVEIRA\r\nCAMILA TOLEDO DE OLIVEIRA\r\nGUILHERME RODRIGUES MORELLI\r\nJEFERSON GOMES FERNANDES\r\nWESLEY REGES DA SILVA";
-            this.lbMatricula.Text = "MAT: 719450\r\nMAT: 719421\r\nMAT: 719432\r\nMAT: 719436\r\nMAT: 719442";
-            //this.textBoxDescription.Text = AssemblyDescription + "\r\nSistema desenvolvido para atender  Faculdade de Filosofia, Ciências e Letras do Centro Universitário Fundação Santo André.\r\n";
+            this.lbIntegrantes.Text = "Camila Gomes de Oliveira\r\nCamila Toledo de Oliveira\r\nGuilherme Rodrigues Morelli\r\nJeferson Gomes Fernandes\r\nWesley Reges da Silva";
+            this.lbMatricula.Text = "Mat: 719450\r\nMat: 719421\r\nMat: 719432\r\nMat: 719436\r\nMat: 719442";
+            this.WindowState = FormWindowState.Normal;
         }
 
         #region Assembly Attribute Accessors

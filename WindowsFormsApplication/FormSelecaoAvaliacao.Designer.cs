@@ -33,7 +33,7 @@
             // 
             // btnComparar
             // 
-            this.btnComparar.Location = new System.Drawing.Point(330, 75);
+            this.btnComparar.Location = new System.Drawing.Point(281, 75);
             this.btnComparar.Name = "btnComparar";
             this.btnComparar.Size = new System.Drawing.Size(75, 23);
             this.btnComparar.TabIndex = 3;
@@ -45,10 +45,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 107);
+            this.ClientSize = new System.Drawing.Size(380, 107);
             this.Controls.Add(this.btnComparar);
             this.Name = "FormSelecaoAvaliacao";
-            this.Text = "Selecionar Avalição";
+            this.Text = "Selecionar Avaliação";
             this.Load += new System.EventHandler(this.FormSelecaoAvaliacao_Load);
             this.ResumeLayout(false);
 

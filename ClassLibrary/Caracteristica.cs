@@ -23,7 +23,7 @@ namespace ClassLibrary
                 connection.Open();
                 SQLiteCommand command = new SQLiteCommand();
                 command.Connection = connection;
-                command.CommandText = "SELECT C.Id [CaracteristicaId], C.CaracteristicaNumero, C.CaracteristicaNome FROM Caracteristica C;";
+                command.CommandText = "SELECT C.Id [CaracteristicaId], C.CaracteristicaNumero, C.CaracteristicaNome FROM Caracteristica C ORDER BY C.CaracteristicaNumero;";
                 command.CommandType = CommandType.Text;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                 da.Fill(tabelaRetorno);

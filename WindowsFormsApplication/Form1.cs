@@ -10,10 +10,9 @@ using ClassLibrary;
 
 namespace WindowsFormsApplication
 {
-    public partial class Form1 : Form
+    public partial class Form1 : FormBase
     {
-        public bool ValidaInatividade { get; set; }
-
+        protected override bool ValidaInatividade { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -26,32 +25,21 @@ namespace WindowsFormsApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Class1.inserirRegistro(this.textBox1.Text, this.maskedTextBox1.Text);
-            MessageBox.Show("Registro inserido","Confirmação",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            this.textBox1.Text = string.Empty;
-            this.maskedTextBox1.Text = string.Empty;
-            this.carregaDados();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            this.carregaDados();
-            this.textBox1.Focus();
             this.timer1.Start();
             this.dgTeste.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        protected override void timer1_Tick(object sender, EventArgs e)
         {
-            this.labelHora.Text = DateTime.Now.ToLongTimeString();
-            if (Program.GetLastInputTime() > 20 && ValidaInatividade)
-            {
-                this.timer1.Stop();
-                MessageBox.Show("Desconectado por inativade (20 sec) teste");
-                Application.Exit();
+            this.dgTeste.Rows.Insert(0, Program.GetLastInputTime().ToString());
 
-            }
+
         }
+
     }
 }

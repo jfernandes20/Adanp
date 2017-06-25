@@ -114,6 +114,53 @@ namespace ClassLibrary
                 throw ex;
             }
         }
+        public static List<Software> ObterMelhorSoftware(DataTable notasAvaliacao, List<Caracteristica> caracteristicas)
+        {
+            List<Software> softwares = new List<Software>();
+            foreach (var r in notasAvaliacao.AsEnumerable().Select(d => new { Id = Convert.ToInt32(d["SoftwareId"]), Nome = d["NomeSoftware"].ToString(), DataAvaliacao = Convert.ToDateTime(d["DataAvaliacao"]).ToShortDateString() }).Distinct())
+            {
+                Software soft = new Software();
+                soft.Id = r.Id;
+                soft.NomeSoftware = r.Nome;
+                foreach (DataRow exibicao in notasAvaliacao.AsEnumerable().Where(d => Convert.ToInt32(d["SoftwareId"]) == r.Id))
+                {
+                    soft.NotaFinal += Convert.ToInt32(Convert.ToInt32(exibicao["NotaTotal"].ToString()) * caracteristicas.Where(d => d.Id == Convert.ToInt32(exibicao["CaracteristicaId"])).Select(d => d.Peso).First());
+                }
+                softwares.Add(soft);
+            }
+            int maiorNota = softwares.Select(d => d.NotaFinal).Max();
+            List<Software> melhorSoftware = new List<Software>();
+            melhorSoftware.AddRange(softwares.Where(d => d.NotaFinal == maiorNota));
+
+            if (melhorSoftware.Count > 1)
+            {
+                melhorSoftware = desempate(melhorSoftware, notasAvaliacao, caracteristicas, 0);
+            }
+            return melhorSoftware;
+        }
+        private static List<Software> desempate(List<Software> softwaresEmpatados, DataTable notas, List<Caracteristica> pesos, int recursao)
+        {
+            //Casos Triviais
+            if (softwaresEmpatados.Count == 1) return softwaresEmpatados;
+            if (recursao == 6) return softwaresEmpatados;
+
+            //Maior nota e qual caracteristica será usada para comparar
+            int CaractId = pesos.OrderByDescending(d => d.Peso).Select(d => d.Id).Skip(recursao).First();
+            int maxNota = Convert.ToInt32(notas.AsEnumerable().Where(row => Convert.ToInt32(row["CaracteristicaId"]) == CaractId).Max(row => row["NotaTotal"]));
+
+            //Softwares que possuem a maior nota
+            var r = notas.AsEnumerable().Where(d => Convert.ToInt32(d["CaracteristicaId"]) == CaractId && Convert.ToInt32(d["NotaTotal"]) == maxNota).Select(d => new { Id = Convert.ToInt32(d["SoftwareId"]), Nome = d["NomeSoftware"].ToString() });
+            List<Software> resultado = new List<Software>();
+            foreach (var x in r.AsEnumerable())
+            {
+                Software soft = new Software();
+                soft.Id = x.Id;
+                soft.NomeSoftware = x.Nome;
+                resultado.Add(soft);
+            }
+            //recursao
+            return desempate(resultado, notas, pesos, recursao + 1);
+        }
     }
 }
 

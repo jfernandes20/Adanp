@@ -92,7 +92,7 @@ namespace WindowsFormsApplication
         }
         protected override void timer1_Tick(object sender, EventArgs e)
         {
-            if (Program.GetLastInputTime() > this.tempoInativo && this.ValidaInatividade)
+            if (Program.GetLastInputTime() >= this.tempoInativo && this.ValidaInatividade)
             {
                 this.timer1.Stop();
                 MessageBox.Show(this.mensagemDesconectado, "Inatividade", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -178,13 +178,12 @@ namespace WindowsFormsApplication
             {
                 this.ValidaInatividade = false;
                 FormSelecaoAvaliacao frmAvaliacoes = new FormSelecaoAvaliacao(softwareComparar, this.caracteristicas);
-                //FormResultado resultado = new FormResultado(Avaliacao.ObterNotasPorSoftware(softwareComparar), this.caracteristicas);
                 frmAvaliacoes.ShowDialog();
                 this.ValidaInatividade = true;
             }
             else
             {
-                MessageBox.Show("Para comprar software é necessario selecionar pelo menos 2 e no máximo 5 softwares!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Para comparar é necessário selecionar pelo menos 2 e no máximo 5 softwares!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -31,23 +31,24 @@ namespace WindowsFormsApplication
             foreach (Software s in this.listaSoftwares.AsEnumerable())
             {
                 soft++;
-                this.Size = new Size(435, 145 + (50 * soft));
-                this.btnComparar.Location = new Point(330, 75 + (50 * soft));
+                this.Size = new Size(395, 145 + (50 * soft));
+                this.btnComparar.Location = new Point(280, 60 + (50 * soft));
                 ComboBox cbDatas = new ComboBox()
                 {
                     Name = "cbAvaliacaoSoftware" + soft,
                     DisplayMember = "DataAvaliacao",
                     ValueMember = "Id",
                     DataSource = this.listaAvaliacoes.Where(d => d.SoftwareId.Id == s.Id).Select(d => new { d.Id, d.DataAvaliacao }).OrderBy(d => d.DataAvaliacao).ToList(),
-                    Location = new Point(119, 20 + (50 * soft)),
-                    Size = new Size(221, 21),
+                    Location = new Point(119, 5 + (50 * soft)),
+                    Size = new Size(180, 21),
                     DropDownStyle = ComboBoxStyle.DropDownList
                 };
                 this.Controls.Add(cbDatas);
+
                 Label lbNomeSoftware = new Label()
                 {
                     Name = "lbSoftware" + soft,
-                    Location = new Point(12, 20 + (50 * soft)),
+                    Location = new Point(12, 5 + (50 * soft)),
                     TextAlign = ContentAlignment.MiddleRight,
                     Text = s.NomeSoftware,
                     Size = new Size(100, 21)
@@ -56,7 +57,7 @@ namespace WindowsFormsApplication
 
                 Label lbTitle = new Label()
                 {
-                    Location = new Point(116, 7 + (50 * soft)),
+                    Location = new Point(116, -10 + (50 * soft)),
                     Text = "Avaliações Disponíveis",
                     AutoSize = true
                 };

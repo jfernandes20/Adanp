@@ -85,7 +85,9 @@ namespace WindowsFormsApplication
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Form1 form = new Form1();
+            ShowUniqueInstance(form);
+            //this.Close();
         }
 
         private void compararToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,7 +105,6 @@ namespace WindowsFormsApplication
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox form = new AboutBox();
-            form.MdiParent = this;
             ShowUniqueInstance(form);
         }
     }
